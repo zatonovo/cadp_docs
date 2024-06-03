@@ -1,0 +1,120 @@
+@startuml
+Title Infrastructure deployment for multiple instances or environments for CADP
+
+hide stereotype
+top to bottom direction
+
+!define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
+!include osaPuml/Common.puml
+!include osaPuml/User/all.puml
+!include osaPuml/Hardware/all.puml
+!include osaPuml/Misc/all.puml
+!include osaPuml/Server/all.puml
+!include osaPuml/Site/all.puml
+
+!include <material/common>
+!include <material/download>
+!include <material/cloud_download>
+!include <material/thermometer>
+!include <material/cellphone>
+!include <material/database>
+!include <material/laptop_windows>
+!include <material/chart_histogram>
+!include <material/server>
+!include <material/server_network>
+!include <material/robot>
+!include <material/weather_partlycloudy>
+
+
+frame ECMWFShared {
+  MA_DATABASE(#ff7766, 1, ecm_storage, rectangle, 'object storage')
+  MA_CLOUD_DOWNLOAD(#ff7766, 1, ecm_extractor, rectangle, 'ECMWF extractor')
+  'MA_DOWNLOAD(#ff7766, 1, ecm_extractor, rectangle, 'foo')
+}
+
+
+together {
+  frame Deployment1 {
+    'osa_database(ts_db_1, "Postgresql", "1")
+    MA_DATABASE(#ff7766, 1, ts_db_1, rectangle, 'Postgresql')
+    MA_SERVER(#ff7766, 1, mqtt_broker_1, rectangle, 'MQTT Broker')
+    MA_ROBOT(#ff7766, 1, ai_model_1, rectangle, 'AI Model')
+    MA_WEATHER_PARTLYCLOUDY(#ff7766, 1, forecast_1, rectangle, 'Weather Forecast')
+    MA_CHART_HISTOGRAM(#ff7766, 1, dashboard_1, rectangle, 'Node RED')
+  }
+
+  frame Region1 {
+    MA_THERMOMETER(#ff7766, 1, sensor_1, cloud, 'Sensor Devices')
+    MA_CELLPHONE(#ff7766, 1, phone_1, rectangle, 'Mobile Phone')
+  }
+
+  sensor_1 -> phone_1
+  phone_1 -> mqtt_broker_1
+  mqtt_broker_1 -> ts_db_1
+  ts_db_1 -> forecast_1
+  ai_model_1 <-up- ts_db_1
+  ecm_storage -l-> forecast_1
+  dashboard_1 -u-> forecast_1
+  dashboard_1 -l-> ai_model_1
+}
+
+
+together {
+  frame Deployment2 {
+    'osa_database(ts_db_2, "Postgresql", "1")
+    MA_DATABASE(#ff7766, 1, ts_db_2, rectangle, 'Postgresql')
+    MA_SERVER(#ff7766, 1, mqtt_broker_2, rectangle, 'MQTT Broker')
+    MA_ROBOT(#ff7766, 1, ai_model_2, rectangle, 'AI Model')
+    MA_WEATHER_PARTLYCLOUDY(#ff7766, 1, forecast_2, rectangle, 'Weather Forecast')
+    MA_CHART_HISTOGRAM(#ff7766, 1, dashboard_2, rectangle, 'Node RED')
+  }
+
+  frame Region2 {
+    MA_THERMOMETER(#ff7766, 1, sensor_2, cloud, 'Sensor Devices')
+    MA_CELLPHONE(#ff7766, 1, phone_2, rectangle, 'Mobile Phone')
+  }
+
+  sensor_2 -> phone_2
+  phone_2 -> mqtt_broker_2
+  mqtt_broker_2 -> ts_db_2
+  ts_db_2 -> forecast_2
+  ai_model_2 <-u- ts_db_2
+  ecm_storage -l-> forecast_2
+  dashboard_2 -u-> forecast_2
+  dashboard_2 -l-> ai_model_2
+}
+
+ai_model_1 --[hidden]> ts_db_2
+ecm_storage <- ecm_extractor
+
+note right of forecast_1
+  Deployments can be either a new 
+  managed instance for a distinct 
+  client or a separate environment 
+  for the same client.
+
+  Deployments are isolated from
+  other deployments due to data
+  privacy needs.
+end note
+
+note bottom of ecm_storage
+  A single production instance
+  of normalized ECMWF data can
+  be shared across deployments.
+
+  Normalized ECMWF files are
+  ~160 MB per forecast.
+  So, 640 MB/day or 234 GB/year.
+end note
+
+note right of sensor_2
+  Each data series has max freq
+  of 1 observation per 5 minutes.
+  So, 288 records/day
+  or 105120 records/year
+end note
+
+
+footer Copyright 2024 Zato Novo
+@enduml

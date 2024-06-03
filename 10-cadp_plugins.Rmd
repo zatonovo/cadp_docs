@@ -1,0 +1,22 @@
+# Risk Protocols
+## Soil moisture
+Forecasting dry soil is the first step in irrigation control.
+The forecast is simply the moisture content of the soil.
+
+When soil moisture reaches a certain level, an alert needs to be generated.
+A risk protocol defines the soil moisture level that triggers an alert.
+The risk protocol is governed by a few factors:
+
+- associated crop
+- growth stage of crop
+
+Each plant has its own water needs, so risk protocols need to be plant-specific.
+We assume the soil moisture sensor is for horticulture or agriculture,
+so there is a specific crop that the sensor is associated with.
+This could be an herb, a vegetable, or even an ornamental. 
+
+Water needs vary depending on the growth stage of the plant.
+When beets are young, they are intentionally stressed with less water to promote root development.
+Beans need plenty of water during pod formation.
+To simplify the model, we can ignore the growth stage aspect of the plant and pick one value.
+

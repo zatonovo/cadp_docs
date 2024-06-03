@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>7 CADP Architecture | Getting Started with the Climate Adaptation Data Platform</title>
+  <meta name="description" content="7 CADP Architecture | Getting Started with the Climate Adaptation Data Platform" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="7 CADP Architecture | Getting Started with the Climate Adaptation Data Platform" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="7 CADP Architecture | Getting Started with the Climate Adaptation Data Platform" />
+  
+  
+  
+
+<meta name="author" content="Brian Lee Yung Rowe" />
+
+
+<meta name="date" content="2024-06-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="device-operation.html"/>
+<link rel="next" href="forecasting-algorithms.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="license.html"><a href="license.html"><i class="fa fa-check"></i><b>2</b> License</a></li>
+<li class="chapter" data-level="3" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>3</b> Overview</a></li>
+<li class="chapter" data-level="4" data-path="use-cases.html"><a href="use-cases.html"><i class="fa fa-check"></i><b>4</b> Use Cases</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="use-cases.html"><a href="use-cases.html#public-health"><i class="fa fa-check"></i><b>4.1</b> Public health</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="use-cases.html"><a href="use-cases.html#early-warning-systems"><i class="fa fa-check"></i><b>4.1.1</b> Early warning systems</a></li>
+<li class="chapter" data-level="4.1.2" data-path="use-cases.html"><a href="use-cases.html#heat-risk"><i class="fa fa-check"></i><b>4.1.2</b> Heat risk</a></li>
+<li class="chapter" data-level="4.1.3" data-path="use-cases.html"><a href="use-cases.html#mosquito-borne-infectious-disease"><i class="fa fa-check"></i><b>4.1.3</b> Mosquito-borne infectious disease</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="use-cases.html"><a href="use-cases.html#precision-agriculture"><i class="fa fa-check"></i><b>4.2</b> Precision agriculture</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="use-cases.html"><a href="use-cases.html#dry-soil-forecasting"><i class="fa fa-check"></i><b>4.2.1</b> Dry soil forecasting</a></li>
+<li class="chapter" data-level="4.2.2" data-path="use-cases.html"><a href="use-cases.html#watering-schedules"><i class="fa fa-check"></i><b>4.2.2</b> Watering schedules</a></li>
+<li class="chapter" data-level="4.2.3" data-path="use-cases.html"><a href="use-cases.html#crop-development"><i class="fa fa-check"></i><b>4.2.3</b> Crop development</a></li>
+<li class="chapter" data-level="4.2.4" data-path="use-cases.html"><a href="use-cases.html#risk-protocol-for-dry-soil"><i class="fa fa-check"></i><b>4.2.4</b> Risk protocol for dry soil</a></li>
+<li class="chapter" data-level="4.2.5" data-path="use-cases.html"><a href="use-cases.html#irrigation-control"><i class="fa fa-check"></i><b>4.2.5</b> Irrigation control</a></li>
+<li class="chapter" data-level="4.2.6" data-path="use-cases.html"><a href="use-cases.html#freeze-warnings"><i class="fa fa-check"></i><b>4.2.6</b> Freeze warnings</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="use-cases.html"><a href="use-cases.html#hotter-times"><i class="fa fa-check"></i><b>4.3</b> Hotter Times</a></li>
+<li class="chapter" data-level="4.4" data-path="use-cases.html"><a href="use-cases.html#mobile-app"><i class="fa fa-check"></i><b>4.4</b> Mobile app</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="physical-infrastructure.html"><a href="physical-infrastructure.html"><i class="fa fa-check"></i><b>5</b> Physical Infrastructure</a></li>
+<li class="chapter" data-level="6" data-path="device-operation.html"><a href="device-operation.html"><i class="fa fa-check"></i><b>6</b> Device Operation</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="device-operation.html"><a href="device-operation.html#components"><i class="fa fa-check"></i><b>6.1</b> Components</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="cadp-architecture.html"><a href="cadp-architecture.html"><i class="fa fa-check"></i><b>7</b> CADP Architecture</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="cadp-architecture.html"><a href="cadp-architecture.html#design-principles"><i class="fa fa-check"></i><b>7.1</b> Design principles</a></li>
+<li class="chapter" data-level="7.2" data-path="cadp-architecture.html"><a href="cadp-architecture.html#database"><i class="fa fa-check"></i><b>7.2</b> Database</a></li>
+<li class="chapter" data-level="7.3" data-path="cadp-architecture.html"><a href="cadp-architecture.html#sensor-data-ingestion"><i class="fa fa-check"></i><b>7.3</b> Sensor data ingestion</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="cadp-architecture.html"><a href="cadp-architecture.html#raw-sensor-data"><i class="fa fa-check"></i><b>7.3.1</b> Raw sensor data</a></li>
+<li class="chapter" data-level="7.3.2" data-path="cadp-architecture.html"><a href="cadp-architecture.html#data-issues"><i class="fa fa-check"></i><b>7.3.2</b> Data issues</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="cadp-architecture.html"><a href="cadp-architecture.html#weather-forecasting"><i class="fa fa-check"></i><b>7.4</b> Weather forecasting</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="cadp-architecture.html"><a href="cadp-architecture.html#ecmwf-forecasts"><i class="fa fa-check"></i><b>7.4.1</b> ECMWF forecasts</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="cadp-architecture.html"><a href="cadp-architecture.html#early-warning-system"><i class="fa fa-check"></i><b>7.5</b> Early warning system</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="forecasting-algorithms.html"><a href="forecasting-algorithms.html"><i class="fa fa-check"></i><b>8</b> Forecasting algorithms</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="forecasting-algorithms.html"><a href="forecasting-algorithms.html#air-temperature"><i class="fa fa-check"></i><b>8.1</b> Air temperature</a></li>
+<li class="chapter" data-level="8.2" data-path="forecasting-algorithms.html"><a href="forecasting-algorithms.html#soil-moisture"><i class="fa fa-check"></i><b>8.2</b> Soil moisture</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="risk-protocols.html"><a href="risk-protocols.html"><i class="fa fa-check"></i><b>9</b> Risk Protocols</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="risk-protocols.html"><a href="risk-protocols.html#soil-moisture-1"><i class="fa fa-check"></i><b>9.1</b> Soil moisture</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>10</b> References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Getting Started with the Climate Adaptation Data Platform</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="cadp-architecture" class="section level1 hasAnchor" number="7">
+<h1><span class="header-section-number">7</span> CADP Architecture<a href="cadp-architecture.html#cadp-architecture" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The architecture of the CADP comprises:</p>
+<ul>
+<li>a low power and long range sensor devices;</li>
+<li>a data collection and storage facility;</li>
+<li>a pluggable predictive models for producing forecasts and predictions;</li>
+<li>a reporting dashboard for decisionmakers and policymakers; and</li>
+<li>a delivery mechanism to provide alerts and suggested interventions to individual stakeholders.</li>
+</ul>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:infrastructure-deployments"></span>
+<img src="images/infrastructure_deployments.png" alt="System architecture to generate weather forecasts and monitor devices." width="696" />
+<p class="caption">
+Figure 7.1: System architecture to generate weather forecasts and monitor devices.
+</p>
+</div>
+<p>The system has two primary sources of data. The first is baseline
+weather forecast data, produced by the European Center for Medium-range
+Weather Forecasts (ECMWF).
+This is a global, gridded dataset with 0.4 degree resolution.
+These forecasts are archived in Amazon S3 and are publicly accessible.</p>
+<p>The second dataset comes from the devices themselves. The sensor data is
+used to tune the gridded forecast according to local conditions.</p>
+<div id="design-principles" class="section level2 hasAnchor" number="7.1">
+<h2><span class="header-section-number">7.1</span> Design principles<a href="cadp-architecture.html#design-principles" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<ul>
+<li>Plan for 18 month shelf life</li>
+<li>Focus on end-to-end infrastructure</li>
+<li>Stub components where necessary</li>
+<li>Use concurrency where appropriate to minimize wall time</li>
+<li>Minimize data movement</li>
+<li>Minimize cost</li>
+</ul>
+</div>
+<div id="database" class="section level2 hasAnchor" number="7.2">
+<h2><span class="header-section-number">7.2</span> Database<a href="cadp-architecture.html#database" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="sensor-data-ingestion" class="section level2 hasAnchor" number="7.3">
+<h2><span class="header-section-number">7.3</span> Sensor data ingestion<a href="cadp-architecture.html#sensor-data-ingestion" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="raw-sensor-data" class="section level3 hasAnchor" number="7.3.1">
+<h3><span class="header-section-number">7.3.1</span> Raw sensor data<a href="cadp-architecture.html#raw-sensor-data" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Stored as an unnormalized delimited file.
+These files have no header, and each row is self-contained.</p>
+<p>The general format of the file is <code>key,timestamp,values</code>,
+where <code>values</code> represents an arbitrary number of additional fields.</p>
+<p>For example, the following snippet shows actual sensor data in this format.</p>
+<pre><code>air_t_h_p,2024-01-15T00:03:26,-5.34,85.30,1048.80
+battery,2024-01-15T00:08:23,0.8398108
+air_t_h_p,2024-01-15T00:13:20,-5.19,83.84,1049.22
+air_t_h_p,2024-01-15T00:23:15,-5.11,82.51,1049.31
+battery,2024-01-15T00:28:12,0.8361486
+air_t_h_p,2024-01-15T00:33:09,-6.98,83.39,1049.73
+air_t_h_p,2024-01-15T00:43:03,-6.97,82.98,1050.29
+battery,2024-01-15T00:48:00,0.8359045
+air_t_h_p,2024-01-15T00:52:57,-6.99,84.48,1050.52
+air_t_h_p,2024-01-15T00:57:44,-5.05,84.28,1050.53
+battery,2024-01-15T01:02:44,0.8312657
+air_t_h_p,2024-01-15T01:02:45,-6.87,84.85,1050.91
+air_t_h_p,2024-01-15T01:12:39,-5.05,84.56,1050.78
+air_t_h_p,2024-01-15T01:22:33,-5.06,84.41,1051.12
+battery,2024-01-15T01:22:34,0.8307775
+air_t_h_p,2024-01-15T01:32:28,-6.99,83.29,1051.41
+air_t_h_p,2024-01-15T01:42:22,-6.87,82.33,1051.89
+battery,2024-01-15T01:42:22,0.8363928
+air_t_h_p,2024-01-15T01:52:16,-6.61,80.60,1052.68
+air_t_h_p,2024-01-15T02:01:55,-6.27,80.06,1053.42
+battery,2024-01-15T02:01:56,0.831754
+air_t_h_p,2024-01-15T02:11:50,-6.34,77.78,1053.46
+air_t_h_p,2024-01-15T02:21:44,-6.39,76.10,1053.47
+battery,2024-01-15T02:21:45,0.8322423
+air_t_h_p,2024-01-15T02:31:39,-6.17,73.03,1053.98
+air_t_h_p,2024-01-15T02:41:33,-6.08,71.05,1054.36
+battery,2024-01-15T02:41:33,0.8361486</code></pre>
+<p>Two observation types are included. The first is <code>air_t_h_p</code>,
+which represents air observations.
+The key hints that there are three value fields.
+The second observation type is <code>battery</code> and contains a single reading
+for the battery level.</p>
+</div>
+<div id="data-issues" class="section level3 hasAnchor" number="7.3.2">
+<h3><span class="header-section-number">7.3.2</span> Data issues<a href="cadp-architecture.html#data-issues" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>When the device cannot connect to the Internet for a while, it loses it’s
+internal time, and the clock resets to 2000-01-01.
+These data points can be dropped.</p>
+<p>Even if the clock doesn’t reset, there can be clock drift.
+This can usually be ignored since the observations are aggregated anyway.</p>
+</div>
+</div>
+<div id="weather-forecasting" class="section level2 hasAnchor" number="7.4">
+<h2><span class="header-section-number">7.4</span> Weather forecasting<a href="cadp-architecture.html#weather-forecasting" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The system uses the ECMWF global gridded forecast data as a baseline forecast.
+Local sensor data is integrated into this forecast to produce a more
+accurate forecast for specific locations.</p>
+<div id="ecmwf-forecasts" class="section level3 hasAnchor" number="7.4.1">
+<h3><span class="header-section-number">7.4.1</span> ECMWF forecasts<a href="cadp-architecture.html#ecmwf-forecasts" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>ECMWF forecasts are updated every six hours. The publicly available AWS
+archive
+has a complete history of data.
+Usage for the bash script that downloads the data appears in Appendix A.</p>
+<p>There are up to 48 forecast steps per forecast.
+Each forecast step ranges between 27 MB - 50 MB,
+which implies a minimum of 1.3 GB of data is
+retrieved every six hours (per update).
+To save space, these files need to be slimmed down
+by removing all unnecessary data.</p>
+</div>
+</div>
+<div id="early-warning-system" class="section level2 hasAnchor" number="7.5">
+<h2><span class="header-section-number">7.5</span> Early warning system<a href="cadp-architecture.html#early-warning-system" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="device-operation.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="forecasting-algorithms.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

@@ -1,0 +1,16 @@
+# Forecasting algorithms
+
+## Air temperature
+
+## Soil moisture
+
+We want to forecast soil moisture based on current environmental conditions. There are four main variables that likely drive soil moisture:
+
+- air temperature
+- air humidity
+- precipitation
+- current soil moisture
+
+We can use a recursive least squares (RLS) implementation as a starting point. This is the same approach used for the temperature forecast, so it should be straightforward to modify.
+
+Predicting soil moisture is confounded by the fact that a change in moisture can be driven by weather but also human intervention. The latter case will create spikes in soil moisture data. These need to be handled with care to avoid erroneous model behavior.

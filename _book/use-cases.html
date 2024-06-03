@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>4 Use Cases | Getting Started with the Climate Adaptation Data Platform</title>
+  <meta name="description" content="4 Use Cases | Getting Started with the Climate Adaptation Data Platform" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="4 Use Cases | Getting Started with the Climate Adaptation Data Platform" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="4 Use Cases | Getting Started with the Climate Adaptation Data Platform" />
+  
+  
+  
+
+<meta name="author" content="Brian Lee Yung Rowe" />
+
+
+<meta name="date" content="2024-06-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="overview.html"/>
+<link rel="next" href="physical-infrastructure.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="license.html"><a href="license.html"><i class="fa fa-check"></i><b>2</b> License</a></li>
+<li class="chapter" data-level="3" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>3</b> Overview</a></li>
+<li class="chapter" data-level="4" data-path="use-cases.html"><a href="use-cases.html"><i class="fa fa-check"></i><b>4</b> Use Cases</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="use-cases.html"><a href="use-cases.html#public-health"><i class="fa fa-check"></i><b>4.1</b> Public health</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="use-cases.html"><a href="use-cases.html#early-warning-systems"><i class="fa fa-check"></i><b>4.1.1</b> Early warning systems</a></li>
+<li class="chapter" data-level="4.1.2" data-path="use-cases.html"><a href="use-cases.html#heat-risk"><i class="fa fa-check"></i><b>4.1.2</b> Heat risk</a></li>
+<li class="chapter" data-level="4.1.3" data-path="use-cases.html"><a href="use-cases.html#mosquito-borne-infectious-disease"><i class="fa fa-check"></i><b>4.1.3</b> Mosquito-borne infectious disease</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="use-cases.html"><a href="use-cases.html#precision-agriculture"><i class="fa fa-check"></i><b>4.2</b> Precision agriculture</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="use-cases.html"><a href="use-cases.html#dry-soil-forecasting"><i class="fa fa-check"></i><b>4.2.1</b> Dry soil forecasting</a></li>
+<li class="chapter" data-level="4.2.2" data-path="use-cases.html"><a href="use-cases.html#watering-schedules"><i class="fa fa-check"></i><b>4.2.2</b> Watering schedules</a></li>
+<li class="chapter" data-level="4.2.3" data-path="use-cases.html"><a href="use-cases.html#crop-development"><i class="fa fa-check"></i><b>4.2.3</b> Crop development</a></li>
+<li class="chapter" data-level="4.2.4" data-path="use-cases.html"><a href="use-cases.html#risk-protocol-for-dry-soil"><i class="fa fa-check"></i><b>4.2.4</b> Risk protocol for dry soil</a></li>
+<li class="chapter" data-level="4.2.5" data-path="use-cases.html"><a href="use-cases.html#irrigation-control"><i class="fa fa-check"></i><b>4.2.5</b> Irrigation control</a></li>
+<li class="chapter" data-level="4.2.6" data-path="use-cases.html"><a href="use-cases.html#freeze-warnings"><i class="fa fa-check"></i><b>4.2.6</b> Freeze warnings</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="use-cases.html"><a href="use-cases.html#hotter-times"><i class="fa fa-check"></i><b>4.3</b> Hotter Times</a></li>
+<li class="chapter" data-level="4.4" data-path="use-cases.html"><a href="use-cases.html#mobile-app"><i class="fa fa-check"></i><b>4.4</b> Mobile app</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="physical-infrastructure.html"><a href="physical-infrastructure.html"><i class="fa fa-check"></i><b>5</b> Physical Infrastructure</a></li>
+<li class="chapter" data-level="6" data-path="device-operation.html"><a href="device-operation.html"><i class="fa fa-check"></i><b>6</b> Device Operation</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="device-operation.html"><a href="device-operation.html#components"><i class="fa fa-check"></i><b>6.1</b> Components</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="cadp-architecture.html"><a href="cadp-architecture.html"><i class="fa fa-check"></i><b>7</b> CADP Architecture</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="cadp-architecture.html"><a href="cadp-architecture.html#design-principles"><i class="fa fa-check"></i><b>7.1</b> Design principles</a></li>
+<li class="chapter" data-level="7.2" data-path="cadp-architecture.html"><a href="cadp-architecture.html#database"><i class="fa fa-check"></i><b>7.2</b> Database</a></li>
+<li class="chapter" data-level="7.3" data-path="cadp-architecture.html"><a href="cadp-architecture.html#sensor-data-ingestion"><i class="fa fa-check"></i><b>7.3</b> Sensor data ingestion</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="cadp-architecture.html"><a href="cadp-architecture.html#raw-sensor-data"><i class="fa fa-check"></i><b>7.3.1</b> Raw sensor data</a></li>
+<li class="chapter" data-level="7.3.2" data-path="cadp-architecture.html"><a href="cadp-architecture.html#data-issues"><i class="fa fa-check"></i><b>7.3.2</b> Data issues</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="cadp-architecture.html"><a href="cadp-architecture.html#weather-forecasting"><i class="fa fa-check"></i><b>7.4</b> Weather forecasting</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="cadp-architecture.html"><a href="cadp-architecture.html#ecmwf-forecasts"><i class="fa fa-check"></i><b>7.4.1</b> ECMWF forecasts</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="cadp-architecture.html"><a href="cadp-architecture.html#early-warning-system"><i class="fa fa-check"></i><b>7.5</b> Early warning system</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="forecasting-algorithms.html"><a href="forecasting-algorithms.html"><i class="fa fa-check"></i><b>8</b> Forecasting algorithms</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="forecasting-algorithms.html"><a href="forecasting-algorithms.html#air-temperature"><i class="fa fa-check"></i><b>8.1</b> Air temperature</a></li>
+<li class="chapter" data-level="8.2" data-path="forecasting-algorithms.html"><a href="forecasting-algorithms.html#soil-moisture"><i class="fa fa-check"></i><b>8.2</b> Soil moisture</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="risk-protocols.html"><a href="risk-protocols.html"><i class="fa fa-check"></i><b>9</b> Risk Protocols</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="risk-protocols.html"><a href="risk-protocols.html#soil-moisture-1"><i class="fa fa-check"></i><b>9.1</b> Soil moisture</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>10</b> References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Getting Started with the Climate Adaptation Data Platform</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="use-cases" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Use Cases<a href="use-cases.html#use-cases" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>Every device powers multiple simultaneous use cases.
+We call this use case stacking.
+This is different from re-using or re-purposing a device.
+With use case stacking, multiple applications run concurrently.
+The supported use cases depend on the sensors attached.
+The two main public health use cases only need the base set of sensors,
+which means anybody with an account can get hyperlocal heat risk
+and mosquito abundance information.</p>
+<div id="public-health" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> Public health<a href="use-cases.html#public-health" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="early-warning-systems" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Early warning systems<a href="use-cases.html#early-warning-systems" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The genesis of this project was the death of 11,000 people in Libya due
+to a medicane (Mediterranean hurricane) that caused a dam to fail.
+People were caught off guard because as a failed state,
+Libya has no functioning weather agency.
+It turns out that most of Africa has limited weather stations.
+Most official weather agencies only send out seasonal forecasts.</p>
+<p>Weather forecasts give people critical time to plan and prepare for
+major weather events.
+Building on top of weather forecasts are early warning systems (EWS).
+These systems apply rules, or risk protocols, to forecasts to determine
+the level of risk people are exposed to.
+EWSes can operate on any type of forecast and includes heat risk,
+air quality risk, the spread of wildfire,
+the spread of infectious disease, and the spread of pests like the ash borer.</p>
+<p>The UN declared a mandate that everyone should be covered by an early warning
+system by 2030. Some $3 billion dollars have been earmarked for this effort.
+While many countries have early warning systems, many are outdated,
+no longer work, or cover a limited number of risks.</p>
+<p>The CADP provides the infrastructure to quickly build EWSes and fulfill
+the UN’s vision.</p>
+</div>
+<div id="heat-risk" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Heat risk<a href="use-cases.html#heat-risk" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Survivability is the upper limit of temperature and humidity that humans
+can withstand. Humidity has a significant impact on the maximum temperature
+that humans can survive in. With high humidity, the body loses its ability
+to regulate temperature via perspiration.</p>
+<p>In some places, climate change is making heat waves more extreme and pushing
+temperatures to the survivability level.
+Even if that limit isn’t reached, whether those conditions are livable is
+another matter.
+Livability limits help people understand what activities are possible
+given temperature and humidity (and sun exposure).
+Figure <a href="use-cases.html#fig:livability-limits">4.1</a>
+compares livability limits for two population
+groups and whether the activity takes place in direct sun or shade.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:livability-limits"></span>
+<img src="images/livability_limits.png" alt="Livability limits for different METs at different temperature and humidity levels. Source: [@vanos2023]" width="467" />
+<p class="caption">
+Figure 4.1: Livability limits for different METs at different temperature and humidity levels. Source: <span class="citation">(Vanos <a href="#ref-vanos2023" role="doc-biblioref">2023</a>)</span>
+</p>
+</div>
+<p>The conversion formula between METs (<span class="math inline">\(M\)</span>) and calories is
+<span class="math display">\[\begin{align}
+M \frac{3.5 m}{200} = kcal/min,
+\end{align}\]</span>
+where <span class="math inline">\(m\)</span> is mass in kilograms.
+This formula enables us to customize the heat risk of specific activities
+according to each individual and their specific health conditions.</p>
+<p>Heat risk builds on the concept of livability.
+The goal is to provide an EWS that helps people understand their heat risk
+exposure and make decisions about what activities to do or
+how to mitigate heat risk during certain activities.
+As shown in <a href="use-cases.html#fig:cadp-ews-quebec">4.2</a> the platform currently highlights
+risks</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:cadp-ews-quebec"></span>
+<img src="images/cadp_ews_quebec.png" alt="A screenshot of a policy dashboard showing active heat risk alerts for two devices." width="460" />
+<p class="caption">
+Figure 4.2: A screenshot of a policy dashboard showing active heat risk alerts for two devices.
+</p>
+</div>
+<p>Individuals can get personalized heat risk guidance for any device in CADP.
+Alerts can be delivered via email or via the mobile app.
+Users can enter some health information to get better alerts.
+This information is saved but
+segregated from personally identifiable information (PII).</p>
+<p>Relevant health information includes</p>
+<ul>
+<li>age</li>
+<li>BMI (weight + height)</li>
+<li>diabetes</li>
+<li>heart issues</li>
+</ul>
+<p>We envision a conversational alert message that doubles as a daily planner.
+Integrating this information with preferred activities results in specific
+messaging that informs people of what activities are realistic for a given
+day. On a very hot and humid day, an older person may want to
+limit sun exposure to an hour. That might mean that golf should be avoided,
+whereas a stroll through a shaded park is more appropriate.</p>
+</div>
+<div id="mosquito-borne-infectious-disease" class="section level3 hasAnchor" number="4.1.3">
+<h3><span class="header-section-number">4.1.3</span> Mosquito-borne infectious disease<a href="use-cases.html#mosquito-borne-infectious-disease" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Mosquitos are a common disease vector and
+can carry numerous infectious diseases,
+such as malaria, dengue fever, zika virus, yellow fever.
+Disease outbreaks are driven by the growth of a mosquito population.
+To limit the severity of an outbreak,
+mosquito surveillance is conducted to monitor the spread of mosquitos.
+By tracking mosquito abundance, it is possible to predict how large an
+outbreak might be.</p>
+<p>Direct observation of mosquitos is an involved process.
+It requires specialized devices to attract and trap mosquitos.
+Usually these devices need periodic cleaning.</p>
+<p>A simpler approach is to use a mosquito abundance model and
+build risk protocols on that model.
+These can be calibrated with physical traps (future).
+Figure <a href="use-cases.html#fig:mosquito-abundance-pdes">4.3</a> shows a system of
+partial differential equations (PDEs) that describe the change
+in mosquito abundance given a few parameters.
+Of importance is that both temperature and humidity drive the
+population growth of mosquitos.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:mosquito-abundance-pdes"></span>
+<img src="images/mosquito_abundance_pdes.png" alt="A system of partial differential equations that model mosquito population growth based on environmental conditions. Source: [@erraguntla2021]" width="366" />
+<p class="caption">
+Figure 4.3: A system of partial differential equations that model mosquito population growth based on environmental conditions. Source: <span class="citation">(Erraguntla <a href="#ref-erraguntla2021" role="doc-biblioref">2021</a>)</span>
+</p>
+</div>
+<p>We can thus use the temperature and humidity forecasts available in the CADP
+to make mosquito abundance forecasts.
+Figure <a href="use-cases.html#fig:cadp-device">4.4</a> shows a graph of a device in the CADP.
+The green line represents observational data,
+while the orange time series is the forecast produced by the CADP.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:cadp-device"></span>
+<img src="images/cadp_device.png" alt="A device detail view showing historical temperature, a temperature forecast, plus heat risk thresholds." width="436" />
+<p class="caption">
+Figure 4.4: A device detail view showing historical temperature, a temperature forecast, plus heat risk thresholds.
+</p>
+</div>
+</div>
+</div>
+<div id="precision-agriculture" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Precision agriculture<a href="use-cases.html#precision-agriculture" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-3"></span>
+<img src="images/IMG_20240220_013145.jpg" alt="UDSM professors and agronomy staff standing behind a prototype weather station device."  />
+<p class="caption">
+Figure 4.5: UDSM professors and agronomy staff standing behind a prototype weather station device.
+</p>
+</div>
+<div id="dry-soil-forecasting" class="section level3 hasAnchor" number="4.2.1">
+<h3><span class="header-section-number">4.2.1</span> Dry soil forecasting<a href="use-cases.html#dry-soil-forecasting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Forecasting dry soil is the first step in irrigation control. The forecast is simply the moisture content of the soil.</p>
+</div>
+<div id="watering-schedules" class="section level3 hasAnchor" number="4.2.2">
+<h3><span class="header-section-number">4.2.2</span> Watering schedules<a href="use-cases.html#watering-schedules" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Watering depends on the type of plant growing. Some plants need a lot of water while others don’t. Many plants don’t like wet roots, so watering cannot be too frequent. We need to develop these control models for each plant.</p>
+</div>
+<div id="crop-development" class="section level3 hasAnchor" number="4.2.3">
+<h3><span class="header-section-number">4.2.3</span> Crop development<a href="use-cases.html#crop-development" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Water needs change based on the maturity of the plant. Beans need moist soil when pods are forming. To form large roots, beets need minimal water during early growth stages to promote root development.</p>
+<p>We can extract this data from various agricultural sites, such as the Farmers Almanac. The information needs to be encoded into programmatic rules.</p>
+</div>
+<div id="risk-protocol-for-dry-soil" class="section level3 hasAnchor" number="4.2.4">
+<h3><span class="header-section-number">4.2.4</span> Risk protocol for dry soil<a href="use-cases.html#risk-protocol-for-dry-soil" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Knowing whether soil needs irrigation depends on a few factors. First, the crop determines the general watering schedule. Decisions are made based on reconciling watering needs with current environmental conditions. We need to know the current soil moisture level. We also want to know the future soil moisture level, which factors in weather forecasts. There’s no point watering today if it will rain tomorrow.</p>
+</div>
+<div id="irrigation-control" class="section level3 hasAnchor" number="4.2.5">
+<h3><span class="header-section-number">4.2.5</span> Irrigation control<a href="use-cases.html#irrigation-control" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Automated irrigation control builds on top of the water needs forecasting model.</p>
+</div>
+<div id="freeze-warnings" class="section level3 hasAnchor" number="4.2.6">
+<h3><span class="header-section-number">4.2.6</span> Freeze warnings<a href="use-cases.html#freeze-warnings" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Farmers and gardeners in temperate or similar climates
+need to know when there are frosts that could damage fragile seedlings.
+Uncertainty leads to wasted time preparing for non-events or
+stress worrying about whether plants will be okay.</p>
+</div>
+</div>
+<div id="hotter-times" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Hotter Times<a href="use-cases.html#hotter-times" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>This site is used to display public data related to the sensor network.
+Hotter Times thus becomes a public service where everyone can benefit from
+the device network.</p>
+<p>All of the layers discussed above can be displayed on Hotter Times.</p>
+</div>
+<div id="mobile-app" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Mobile app<a href="use-cases.html#mobile-app" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A mobile application is used to mediate the network connection for devices
+in remote areas. It is also used to deliver alerts to users.
+Using the device as an alert delivery mechanism ensures users have the device
+installed and able to act as a data transport for devices.</p>
+
+</div>
+</div>
+<h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="refs" class="references hanging-indent">
+<div id="ref-erraguntla2021">
+<p>Erraguntla, Dave, M. 2021. “Predictive Model for Microclimatic Temperature and Its Use in Mosquito Population Modeling.” <em>Sci Rep 11, 18909</em>. <a href="https://www.nature.com/articles/s41598-021-98316-x">https://www.nature.com/articles/s41598-021-98316-x</a>.</p>
+</div>
+<div id="ref-vanos2023">
+<p>Vanos, Guzman-Echavarria, J. 2023. “A Physiological Approach for Assessing Human Survivability and Liveability to Heat in a Changing Climate.” <em>Nat Commun 14</em>. <a href="https://doi.org/10.1038/s41467-023-43121-5">https://doi.org/10.1038/s41467-023-43121-5</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="overview.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="physical-infrastructure.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

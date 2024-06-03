@@ -1,0 +1,17 @@
+@startuml
+Title Device networking options
+
+hide stereotype
+left to right direction
+
+(init)
+
+note left of init
+config mode
+run mode:
+  bluetooth
+  wifi
+end note
+
+footer Copyright 2024 Zato Novo
+@enduml

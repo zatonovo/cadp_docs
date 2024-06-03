@@ -1,0 +1,42 @@
+# Physical Infrastructure
+
+Devices can connect with the CADP via different means.
+Figure \@ref(fig:device-networking) shows two different approaches.
+The simplest approach is to connect directly via WiFi.
+In this approach, a device communicates directly with the CADP MQTT server.
+This approach works well when reliable WiFi is available.
+
+```{r device-networking, echo=FALSE, fig.align='center', fig.cap="Different network configuration of system."}
+knitr::include_graphics('images/device_networking.png')
+```
+
+
+The method used for remote areas with limited infastructure utilizes
+a mobile phone as an intermediary.
+In this approach we assume that mobile phones (with a network connection)
+exist in proximity to devices but they are no fixed internet gateways.
+We call the mobile phones ephemeral gateways because they may disappear 
+at any time.
+
+Ephemeral gateways offer a temporary network connection. 
+The EG is responsible for pushing data to the CADP MQTT server.
+If a network connection is unavailable, 
+it will cache the data on the mobile phone until a network connection is
+available.
+Once a connection is established, the EG must push the data to the server.
+
+Devices are connected together via the LoRa wireless protocol.
+When a particular device connects with an ephemeral gateway,
+it broadcasts a message to other connected devices and notifies them
+that it has a network connection.
+This device will attempt to upload as much data to the mobile device as
+possible.
+
+Devices that receive this message will begin broadcasting data to be received
+by the device connected to the EG.
+The broadcast includes the ID of the device connected to the EG.
+Only the device connected to the EG can broadcast an ack back.
+
+In the event that multiple EGs are available,
+each device is responsible for choosing the device to use as the target EG.
+

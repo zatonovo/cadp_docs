@@ -1,0 +1,69 @@
+@startuml
+Title Device networking options
+
+hide stereotype
+left to right direction
+
+!define osaPuml https://raw.githubusercontent.com/Crashedmind/PlantUML-opensecurityarchitecture2-icons/master
+!include osaPuml/Common.puml
+!include osaPuml/User/all.puml
+!include osaPuml/Hardware/all.puml
+!include osaPuml/Misc/all.puml
+!include osaPuml/Server/all.puml
+!include osaPuml/Site/all.puml
+
+!include <material/common>
+!include <material/download>
+!include <material/cloud_download>
+!include <material/thermometer>
+!include <material/cellphone>
+!include <material/database>
+!include <material/laptop_windows>
+!include <material/chart_histogram>
+!include <material/server>
+!include <material/server_network>
+!include <material/robot>
+!include <material/weather_partlycloudy>
+
+  frame Deployment1 {
+    'osa_database(ts_db_1, "Postgresql", "1")
+    MA_DATABASE(#ff7766, 1, ts_db_1, rectangle, 'Postgresql')
+    MA_SERVER(#ff7766, 1, mqtt_broker_1, rectangle, 'MQTT Broker')
+    MA_ROBOT(#ff7766, 1, ai_model_1, rectangle, 'AI Model')
+    MA_WEATHER_PARTLYCLOUDY(#ff7766, 1, forecast_1, rectangle, 'Weather Forecast')
+    MA_CHART_HISTOGRAM(#ff7766, 1, dashboard_1, rectangle, 'Node RED')
+  }
+
+
+  frame WifiDirect {
+    MA_THERMOMETER(#ff7766, 1, sensor_11, rectangle, 'Sensor Device')
+    MA_THERMOMETER(#ff7766, 1, sensor_12, rectangle, 'Sensor Device')
+  }
+
+  sensor_11 --> mqtt_broker_1
+  sensor_12 --> mqtt_broker_1
+
+  frame LoraMesh {
+    MA_THERMOMETER(#ff7766, 1, sensor_21, rectangle, 'Sensor Device 21')
+    MA_THERMOMETER(#ff7766, 1, sensor_22, rectangle, 'Sensor Device 22')
+    MA_THERMOMETER(#ff7766, 1, sensor_23, rectangle, 'Sensor Device 23')
+    MA_THERMOMETER(#ff7766, 1, sensor_24, rectangle, 'Sensor Device 24')
+    MA_CELLPHONE(#ff7766, 1, phone_1, rectangle, 'Mobile Phone 1')
+    MA_CELLPHONE(#ff7766, 1, phone_2, rectangle, 'Mobile Phone 2')
+  }
+
+  phone_1 -[hidden]> phone_2
+  phone_1 --> mqtt_broker_1
+  phone_2 --> mqtt_broker_1
+  phone_1 <-u- sensor_21: BLE
+  phone_2 <-u- sensor_24: BLE
+
+  sensor_22 <-d-> sensor_21: LoRa
+  sensor_24 <-r-> sensor_21: LoRa
+  sensor_23 <-r-> sensor_22: LoRa
+  sensor_24 <-u-> sensor_23: LoRa
+  sensor_24 <--> sensor_22: LoRa
+  sensor_23 <--> sensor_21: LoRa
+
+footer Copyright 2024 Zato Novo
+@enduml

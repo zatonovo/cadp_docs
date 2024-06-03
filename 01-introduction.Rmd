@@ -1,0 +1,35 @@
+# Overview
+
+The Climate Adaptation Data Platform (CADP) accelerates climate adaptation
+initiatives by bringing together multiple stakeholders to addresss
+multiple climate-related challenges.
+The primary stakeholders are policymakers/governments, farmers, 
+and individual members of the community.
+The CADP provides tangible value to each stakeholder.
+
+The magic of the CADP is that it breaks through policy paralysis by 
+creating the device and data infrastructure that policymakers need to 
+drive widespread climate adaptation efforts.
+Our hypothesis is that it's unrealistic for municipalities to deploy
+and operate sensor networks. 
+It's also too complex an undertaking for community groups to take on.
+
+CADP provides an alternate path where individuals and businesses purchase
+devices that incrementally build out the infrastructure needed for
+policymakers.
+
+```{r, echo=FALSE, fig.align='center', fig.cap="A prototype weather station device deployed at the University of Dar es Salaam test farm in Tanzania."}
+knitr::include_graphics('images/IMG_20240223_015836.jpg')
+```
+
+This document discusses the different use cases that CADP is designed for
+and the value people get from these use cases.
+Where applicable, a distinction will be made between 
+the value individuals get from the platform versus the value policymakers get.
+
+After describing the use cases, we move into more technical territory
+so people can learn how to use and develop the platform further.
+First is a high-level view of the physical infrastructure and
+the relationship between a device network and the CADP.
+Devices are responsible for monitoring environmental conditions
+and sending the collected data to the platform.

@@ -1,0 +1,10 @@
+# Device Operation
+
+\begin{enumerate}
+\item Install device in activity area
+\item Pair device via Bluetooth
+\item Set location for device
+\end{enumerate}
+
+## Components
+Molex 51005-2P connector for LiPo batteries

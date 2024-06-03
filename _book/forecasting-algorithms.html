@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>8 Forecasting algorithms | Getting Started with the Climate Adaptation Data Platform</title>
+  <meta name="description" content="8 Forecasting algorithms | Getting Started with the Climate Adaptation Data Platform" />
+  <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="8 Forecasting algorithms | Getting Started with the Climate Adaptation Data Platform" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="8 Forecasting algorithms | Getting Started with the Climate Adaptation Data Platform" />
+  
+  
+  
+
+<meta name="author" content="Brian Lee Yung Rowe" />
+
+
+<meta name="date" content="2024-06-03" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="cadp-architecture.html"/>
+<link rel="next" href="risk-protocols.html"/>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+<link href="libs/anchor-sections-1.1.0/anchor-sections.css" rel="stylesheet" />
+<link href="libs/anchor-sections-1.1.0/anchor-sections-hash.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.1.0/anchor-sections.js"></script>
+
+
+
+<style type="text/css">
+  
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Preface</a></li>
+<li class="chapter" data-level="2" data-path="license.html"><a href="license.html"><i class="fa fa-check"></i><b>2</b> License</a></li>
+<li class="chapter" data-level="3" data-path="overview.html"><a href="overview.html"><i class="fa fa-check"></i><b>3</b> Overview</a></li>
+<li class="chapter" data-level="4" data-path="use-cases.html"><a href="use-cases.html"><i class="fa fa-check"></i><b>4</b> Use Cases</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="use-cases.html"><a href="use-cases.html#public-health"><i class="fa fa-check"></i><b>4.1</b> Public health</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="use-cases.html"><a href="use-cases.html#early-warning-systems"><i class="fa fa-check"></i><b>4.1.1</b> Early warning systems</a></li>
+<li class="chapter" data-level="4.1.2" data-path="use-cases.html"><a href="use-cases.html#heat-risk"><i class="fa fa-check"></i><b>4.1.2</b> Heat risk</a></li>
+<li class="chapter" data-level="4.1.3" data-path="use-cases.html"><a href="use-cases.html#mosquito-borne-infectious-disease"><i class="fa fa-check"></i><b>4.1.3</b> Mosquito-borne infectious disease</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="use-cases.html"><a href="use-cases.html#precision-agriculture"><i class="fa fa-check"></i><b>4.2</b> Precision agriculture</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="use-cases.html"><a href="use-cases.html#dry-soil-forecasting"><i class="fa fa-check"></i><b>4.2.1</b> Dry soil forecasting</a></li>
+<li class="chapter" data-level="4.2.2" data-path="use-cases.html"><a href="use-cases.html#watering-schedules"><i class="fa fa-check"></i><b>4.2.2</b> Watering schedules</a></li>
+<li class="chapter" data-level="4.2.3" data-path="use-cases.html"><a href="use-cases.html#crop-development"><i class="fa fa-check"></i><b>4.2.3</b> Crop development</a></li>
+<li class="chapter" data-level="4.2.4" data-path="use-cases.html"><a href="use-cases.html#risk-protocol-for-dry-soil"><i class="fa fa-check"></i><b>4.2.4</b> Risk protocol for dry soil</a></li>
+<li class="chapter" data-level="4.2.5" data-path="use-cases.html"><a href="use-cases.html#irrigation-control"><i class="fa fa-check"></i><b>4.2.5</b> Irrigation control</a></li>
+<li class="chapter" data-level="4.2.6" data-path="use-cases.html"><a href="use-cases.html#freeze-warnings"><i class="fa fa-check"></i><b>4.2.6</b> Freeze warnings</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="use-cases.html"><a href="use-cases.html#hotter-times"><i class="fa fa-check"></i><b>4.3</b> Hotter Times</a></li>
+<li class="chapter" data-level="4.4" data-path="use-cases.html"><a href="use-cases.html#mobile-app"><i class="fa fa-check"></i><b>4.4</b> Mobile app</a></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="physical-infrastructure.html"><a href="physical-infrastructure.html"><i class="fa fa-check"></i><b>5</b> Physical Infrastructure</a></li>
+<li class="chapter" data-level="6" data-path="device-operation.html"><a href="device-operation.html"><i class="fa fa-check"></i><b>6</b> Device Operation</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="device-operation.html"><a href="device-operation.html#components"><i class="fa fa-check"></i><b>6.1</b> Components</a></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="cadp-architecture.html"><a href="cadp-architecture.html"><i class="fa fa-check"></i><b>7</b> CADP Architecture</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="cadp-architecture.html"><a href="cadp-architecture.html#design-principles"><i class="fa fa-check"></i><b>7.1</b> Design principles</a></li>
+<li class="chapter" data-level="7.2" data-path="cadp-architecture.html"><a href="cadp-architecture.html#database"><i class="fa fa-check"></i><b>7.2</b> Database</a></li>
+<li class="chapter" data-level="7.3" data-path="cadp-architecture.html"><a href="cadp-architecture.html#sensor-data-ingestion"><i class="fa fa-check"></i><b>7.3</b> Sensor data ingestion</a>
+<ul>
+<li class="chapter" data-level="7.3.1" data-path="cadp-architecture.html"><a href="cadp-architecture.html#raw-sensor-data"><i class="fa fa-check"></i><b>7.3.1</b> Raw sensor data</a></li>
+<li class="chapter" data-level="7.3.2" data-path="cadp-architecture.html"><a href="cadp-architecture.html#data-issues"><i class="fa fa-check"></i><b>7.3.2</b> Data issues</a></li>
+</ul></li>
+<li class="chapter" data-level="7.4" data-path="cadp-architecture.html"><a href="cadp-architecture.html#weather-forecasting"><i class="fa fa-check"></i><b>7.4</b> Weather forecasting</a>
+<ul>
+<li class="chapter" data-level="7.4.1" data-path="cadp-architecture.html"><a href="cadp-architecture.html#ecmwf-forecasts"><i class="fa fa-check"></i><b>7.4.1</b> ECMWF forecasts</a></li>
+</ul></li>
+<li class="chapter" data-level="7.5" data-path="cadp-architecture.html"><a href="cadp-architecture.html#early-warning-system"><i class="fa fa-check"></i><b>7.5</b> Early warning system</a></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="forecasting-algorithms.html"><a href="forecasting-algorithms.html"><i class="fa fa-check"></i><b>8</b> Forecasting algorithms</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="forecasting-algorithms.html"><a href="forecasting-algorithms.html#air-temperature"><i class="fa fa-check"></i><b>8.1</b> Air temperature</a></li>
+<li class="chapter" data-level="8.2" data-path="forecasting-algorithms.html"><a href="forecasting-algorithms.html#soil-moisture"><i class="fa fa-check"></i><b>8.2</b> Soil moisture</a></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="risk-protocols.html"><a href="risk-protocols.html"><i class="fa fa-check"></i><b>9</b> Risk Protocols</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="risk-protocols.html"><a href="risk-protocols.html#soil-moisture-1"><i class="fa fa-check"></i><b>9.1</b> Soil moisture</a></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="references.html"><a href="references.html"><i class="fa fa-check"></i><b>10</b> References</a></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Getting Started with the Climate Adaptation Data Platform</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="forecasting-algorithms" class="section level1 hasAnchor" number="8">
+<h1><span class="header-section-number">8</span> Forecasting algorithms<a href="forecasting-algorithms.html#forecasting-algorithms" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<div id="air-temperature" class="section level2 hasAnchor" number="8.1">
+<h2><span class="header-section-number">8.1</span> Air temperature<a href="forecasting-algorithms.html#air-temperature" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+</div>
+<div id="soil-moisture" class="section level2 hasAnchor" number="8.2">
+<h2><span class="header-section-number">8.2</span> Soil moisture<a href="forecasting-algorithms.html#soil-moisture" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>We want to forecast soil moisture based on current environmental conditions. There are four main variables that likely drive soil moisture:</p>
+<ul>
+<li>air temperature</li>
+<li>air humidity</li>
+<li>precipitation</li>
+<li>current soil moisture</li>
+</ul>
+<p>We can use a recursive least squares (RLS) implementation as a starting point. This is the same approach used for the temperature forecast, so it should be straightforward to modify.</p>
+<p>Predicting soil moisture is confounded by the fact that a change in moisture can be driven by weather but also human intervention. The latter case will create spikes in soil moisture data. These need to be handled with care to avoid erroneous model behavior.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="cadp-architecture.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="risk-protocols.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.9/latest.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
