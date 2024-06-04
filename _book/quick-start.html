@@ -4,18 +4,18 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>7 Device Operation | Getting Started with the Climate Adaptation Data Platform</title>
-  <meta name="description" content="7 Device Operation | Getting Started with the Climate Adaptation Data Platform" />
+  <title>4 Quick Start | Getting Started with the Climate Adaptation Data Platform</title>
+  <meta name="description" content="4 Quick Start | Getting Started with the Climate Adaptation Data Platform" />
   <meta name="generator" content="bookdown 0.39 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="7 Device Operation | Getting Started with the Climate Adaptation Data Platform" />
+  <meta property="og:title" content="4 Quick Start | Getting Started with the Climate Adaptation Data Platform" />
   <meta property="og:type" content="book" />
   
   
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="7 Device Operation | Getting Started with the Climate Adaptation Data Platform" />
+  <meta name="twitter:title" content="4 Quick Start | Getting Started with the Climate Adaptation Data Platform" />
   
   
   
@@ -30,8 +30,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="physical-infrastructure.html"/>
-<link rel="next" href="cadp-architecture.html"/>
+<link rel="prev" href="overview.html"/>
+<link rel="next" href="use-cases.html"/>
 <script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
@@ -164,12 +164,130 @@
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="device-operation" class="section level1 hasAnchor" number="7">
-<h1><span class="header-section-number">7</span> Device Operation<a href="device-operation.html#device-operation" class="anchor-section" aria-label="Anchor link to header"></a></h1>
-<div id="components" class="section level2 hasAnchor" number="7.1">
-<h2><span class="header-section-number">7.1</span> Components<a href="device-operation.html#components" class="anchor-section" aria-label="Anchor link to header"></a></h2>
-<p>Molex 51005-2P connector for LiPo batteries</p>
+<div id="quick-start" class="section level1 hasAnchor" number="4">
+<h1><span class="header-section-number">4</span> Quick Start<a href="quick-start.html#quick-start" class="anchor-section" aria-label="Anchor link to header"></a></h1>
+<p>The Climate Adaptation Data Platform is a turnkey platform for building
+weather-dependent applications. CADP accelerate food security and public health
+initiatives by providing all the infrastructure to automatically incorporate
+hyperlocal forecasts as a data source for</p>
+<ul>
+<li>precision agriculture</li>
+<li>digital advisory services</li>
+<li>heat-health early warning systems</li>
+<li>infectious disease early warning systems</li>
+</ul>
+<div id="system-requirements" class="section level2 hasAnchor" number="4.1">
+<h2><span class="header-section-number">4.1</span> System Requirements<a href="quick-start.html#system-requirements" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="linux" class="section level3 hasAnchor" number="4.1.1">
+<h3><span class="header-section-number">4.1.1</span> Linux<a href="quick-start.html#linux" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The platform will work on most Debian-based Linux distributions.
+At a minimum you need to have the following available:</p>
+<ul>
+<li>bash: this is the command line shell where you can execute commands</li>
+<li>make: this is a standard tool to build software</li>
+</ul>
+<p>In a new environment, run the <code>bin/init_workstation.sh</code>
+script to ensure you have the tools you need to build the system.</p>
+<div id="windows-users" class="section level4 hasAnchor" number="4.1.1.1">
+<h4><span class="header-section-number">4.1.1.1</span> Windows users<a href="quick-start.html#windows-users" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>If your primary operating system is Windows, you will need to install the
+Windows Subsystem for Linux. This will give you <code>bash</code> and likely `make.</p>
+</div>
+<div id="mac-users" class="section level4 hasAnchor" number="4.1.1.2">
+<h4><span class="header-section-number">4.1.1.2</span> Mac users<a href="quick-start.html#mac-users" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>OS X is built on BSD. Many of the tools have slight differences from GNU Linux.
+That said, the system <em>should</em> run without issue on Mac OS X.</p>
+</div>
+</div>
+<div id="docker" class="section level3 hasAnchor" number="4.1.2">
+<h3><span class="header-section-number">4.1.2</span> Docker<a href="quick-start.html#docker" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Docker is required. The version used to create this repo is</p>
+<pre><code>$ docker --version
+Docker version 25.0.3, build 4debf41</code></pre>
+<p>If you are on Windows, follow
+<a href="https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers">the official instructions</a>
+for installing the Linux Subsystem for Windows and Docker desktop.</p>
+</div>
+</div>
+<div id="building-the-platform" class="section level2 hasAnchor" number="4.2">
+<h2><span class="header-section-number">4.2</span> Building the Platform<a href="quick-start.html#building-the-platform" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>The full platform can be built using the following command:</p>
+<pre><code>make all</code></pre>
+<p>This will first build the platform and then launch it. The following tasks
+are executed:</p>
+<ul>
+<li>initialize database</li>
+<li>initialize the dashboard</li>
+<li>build all images</li>
+</ul>
+<p>You can use this command repeatedly. The <code>Makefile</code> is smart enough to know
+not to re-initialize the database.</p>
+<p>To verify that the system is running, you can check the logs or check
+the container statuses directly. Logs can be monitored using <code>make logs</code>,
+while the container statuses can be viewed by typing <code>docker ps</code>.
+In this latter command, the output should look something like this:</p>
+<pre><code>$ docker ps
+CONTAINER ID   IMAGE                                                                COMMAND                  CREATED       STATUS                   PORTS                                                                                  NAMES
+c86a8b8a34a2   zeomancer_system-weather_forecast                               &quot;tini -g -- /bin/bas…&quot;   3 hours ago   Up 3 hours (unhealthy)   443/tcp, 8888/tcp, 0.0.0.0:8180-&gt;80/tcp, :::8180-&gt;80/tcp                               zeomancer_system-weather_forecast-1
+6e2812b24695   zeomancer_system-simulator_etl                                  &quot;tini -g -- /bin/bas…&quot;   3 hours ago   Up 3 hours (unhealthy)   80/tcp, 443/tcp, 8004/tcp, 8888/tcp, 0.0.0.0:8081-&gt;8080/tcp, :::8081-&gt;8080/tcp         zeomancer_system-simulator_etl-1
+27e46eb20065   zeomancer_system-ecm_etl                                        &quot;tini -g -- /app/zeo…&quot;   3 hours ago   Up 3 hours (unhealthy)   80/tcp, 443/tcp, 8004/tcp, 8888/tcp, 0.0.0.0:8080-&gt;8080/tcp, :::8080-&gt;8080/tcp         zeomancer_system-ecm_etl-1
+5db4dd92afa2   timescale/timescaledb:latest-pg12                                    &quot;docker-entrypoint.s…&quot;   3 hours ago   Up 3 hours               0.0.0.0:5432-&gt;5432/tcp, :::5432-&gt;5432/tcp                                              zeomancer_system-ts_db-1
+3bb9e8c4788a   nodered/node-red:latest                                              &quot;./entrypoint.sh&quot;        3 hours ago   Up 3 hours (healthy)     0.0.0.0:9002-&gt;1880/tcp, :::9002-&gt;1880/tcp                                              zeomancer_system-node_red-1
+dc8c438b1bf3   eclipse-mosquitto:2.0.18-openssl                                     &quot;/docker-entrypoint.…&quot;   3 hours ago   Up 3 hours               0.0.0.0:1883-&gt;1883/tcp, :::1883-&gt;1883/tcp, 0.0.0.0:9001-&gt;9001/tcp, :::9001-&gt;9001/tcp   zeomancer_system-mqtt_broker-1
+42c737867360   gcr.io/micro-dynamo-351417/bank-transaction-classification_service   &quot;bash&quot;                   9 days ago    Up 9 days                8080/tcp                                                                               laughing_mendeleev</code></pre>
+<p>To stop the platform, just type <code>make stop</code>.
+You can restart the platform by running <code>make run</code>.
+The previous state will be retained when you start back up.</p>
+</div>
+<div id="platform-demos" class="section level2 hasAnchor" number="4.3">
+<h2><span class="header-section-number">4.3</span> Platform Demos<a href="quick-start.html#platform-demos" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<p>A number of demos can be deployed into your running system.</p>
+<div id="get-available-demos" class="section level3 hasAnchor" number="4.3.1">
+<h3><span class="header-section-number">4.3.1</span> Get available demos<a href="quick-start.html#get-available-demos" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>This target shows all the available demos and the regions where stations
+can be loaded.</p>
+<pre><code>make list-demos</code></pre>
+</div>
+<div id="deploy-a-demo" class="section level3 hasAnchor" number="4.3.2">
+<h3><span class="header-section-number">4.3.2</span> Deploy a demo<a href="quick-start.html#deploy-a-demo" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Deploying a demo means that all source weather data is downloaded and loaded
+into the database.
+Once the source data are loaded, it is possible to run a simulation to show
+how the system state evolves over time or batch run all the forecasting models
+and risk rules until an arbitrary end date.
+The drawback of the simulator approach is that it will take a while to
+observe.</p>
+<pre><code>make run-demo</code></pre>
+<p>During the installation of a demo, you will be prompted to choose whether
+to continue with running batch forecasts or not.</p>
+</div>
+<div id="view-dashboard" class="section level3 hasAnchor" number="4.3.3">
+<h3><span class="header-section-number">4.3.3</span> View dashboard<a href="quick-start.html#view-dashboard" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>There are two dashboard views. One defines the data processing workflows
+and is for application developers. The other is for policymakers and shows
+the device network and corresponding weather and application information.</p>
+</div>
+<div id="reset-system" class="section level3 hasAnchor" number="4.3.4">
+<h3><span class="header-section-number">4.3.4</span> Reset system<a href="quick-start.html#reset-system" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>To run another demo, you need to reset the system state. A <code>make</code> target
+makes this a simple task. Be careful: it also makes it easy to lose all your
+work, since it deletes everything in the database!!</p>
+<pre><code>make reset</code></pre>
+</div>
+</div>
+<div id="viewing-the-dashboard" class="section level2 hasAnchor" number="4.4">
+<h2><span class="header-section-number">4.4</span> Viewing the dashboard<a href="quick-start.html#viewing-the-dashboard" class="anchor-section" aria-label="Anchor link to header"></a></h2>
+<div id="policymaker-dashboard" class="section level3 hasAnchor" number="4.4.1">
+<h3><span class="header-section-number">4.4.1</span> Policymaker dashboard<a href="quick-start.html#policymaker-dashboard" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The end-user reporting dashboard for decisionmakers and policymakers is
+located at <code>http://localhost:9002/dashboar/</code>.</p>
+</div>
+<div id="system-administration-dashboard" class="section level3 hasAnchor" number="4.4.2">
+<h3><span class="header-section-number">4.4.2</span> System administration dashboard<a href="quick-start.html#system-administration-dashboard" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>The workflows that define the processing jobs are defined in Node RED.
+They are accessible at <code>http://localhost:9002/#flow/</code>.</p>
 
+</div>
 </div>
 </div>
             </section>
@@ -177,8 +295,8 @@
           </div>
         </div>
       </div>
-<a href="physical-infrastructure.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="cadp-architecture.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="overview.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="use-cases.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>

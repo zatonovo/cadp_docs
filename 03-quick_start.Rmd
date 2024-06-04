@@ -1,0 +1,146 @@
+# Quick Start
+The Climate Adaptation Data Platform is a turnkey platform for building 
+weather-dependent applications. CADP accelerate food security and public health
+initiatives by providing all the infrastructure to automatically incorporate
+hyperlocal forecasts as a data source for 
+
+- precision agriculture
+- digital advisory services
+- heat-health early warning systems
+- infectious disease early warning systems
+
+## System Requirements
+### Linux
+The platform will work on most Debian-based Linux distributions.
+At a minimum you need to have the following available:
+
+- bash: this is the command line shell where you can execute commands
+- make: this is a standard tool to build software
+
+In a new environment, run the `bin/init_workstation.sh` 
+script to ensure you have the tools you need to build the system.
+
+#### Windows users
+
+If your primary operating system is Windows, you will need to install the
+Windows Subsystem for Linux. This will give you `bash` and likely `make.
+
+#### Mac users
+
+OS X is built on BSD. Many of the tools have slight differences from GNU Linux.
+That said, the system *should* run without issue on Mac OS X.
+
+### Docker
+
+Docker is required. The version used to create this repo is
+
+```
+$ docker --version
+Docker version 25.0.3, build 4debf41
+```
+
+If you are on Windows, follow 
+[the official instructions](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers)
+for installing the Linux Subsystem for Windows and Docker desktop.
+
+
+## Building the Platform
+The full platform can be built using the following command:
+
+```
+make all
+```
+
+This will first build the platform and then launch it. The following tasks
+are executed:
+
+- initialize database
+- initialize the dashboard
+- build all images
+
+You can use this command repeatedly. The `Makefile` is smart enough to know
+not to re-initialize the database.
+
+To verify that the system is running, you can check the logs or check
+the container statuses directly. Logs can be monitored using `make logs`,
+while the container statuses can be viewed by typing `docker ps`.
+In this latter command, the output should look something like this:
+
+```
+$ docker ps
+CONTAINER ID   IMAGE                                                                COMMAND                  CREATED       STATUS                   PORTS                                                                                  NAMES
+c86a8b8a34a2   zeomancer_system-weather_forecast                               "tini -g -- /bin/bas…"   3 hours ago   Up 3 hours (unhealthy)   443/tcp, 8888/tcp, 0.0.0.0:8180->80/tcp, :::8180->80/tcp                               zeomancer_system-weather_forecast-1
+6e2812b24695   zeomancer_system-simulator_etl                                  "tini -g -- /bin/bas…"   3 hours ago   Up 3 hours (unhealthy)   80/tcp, 443/tcp, 8004/tcp, 8888/tcp, 0.0.0.0:8081->8080/tcp, :::8081->8080/tcp         zeomancer_system-simulator_etl-1
+27e46eb20065   zeomancer_system-ecm_etl                                        "tini -g -- /app/zeo…"   3 hours ago   Up 3 hours (unhealthy)   80/tcp, 443/tcp, 8004/tcp, 8888/tcp, 0.0.0.0:8080->8080/tcp, :::8080->8080/tcp         zeomancer_system-ecm_etl-1
+5db4dd92afa2   timescale/timescaledb:latest-pg12                                    "docker-entrypoint.s…"   3 hours ago   Up 3 hours               0.0.0.0:5432->5432/tcp, :::5432->5432/tcp                                              zeomancer_system-ts_db-1
+3bb9e8c4788a   nodered/node-red:latest                                              "./entrypoint.sh"        3 hours ago   Up 3 hours (healthy)     0.0.0.0:9002->1880/tcp, :::9002->1880/tcp                                              zeomancer_system-node_red-1
+dc8c438b1bf3   eclipse-mosquitto:2.0.18-openssl                                     "/docker-entrypoint.…"   3 hours ago   Up 3 hours               0.0.0.0:1883->1883/tcp, :::1883->1883/tcp, 0.0.0.0:9001->9001/tcp, :::9001->9001/tcp   zeomancer_system-mqtt_broker-1
+42c737867360   gcr.io/micro-dynamo-351417/bank-transaction-classification_service   "bash"                   9 days ago    Up 9 days                8080/tcp                                                                               laughing_mendeleev
+```
+
+
+To stop the platform, just type `make stop`.
+You can restart the platform by running `make run`.
+The previous state will be retained when you start back up.
+
+
+## Platform Demos
+A number of demos can be deployed into your running system.
+
+### Get available demos
+
+This target shows all the available demos and the regions where stations 
+can be loaded.
+
+```
+make list-demos
+```
+
+
+### Deploy a demo
+
+Deploying a demo means that all source weather data is downloaded and loaded
+into the database.
+Once the source data are loaded, it is possible to run a simulation to show
+how the system state evolves over time or batch run all the forecasting models
+and risk rules until an arbitrary end date.
+The drawback of the simulator approach is that it will take a while to 
+observe.
+
+```
+make run-demo
+```
+
+During the installation of a demo, you will be prompted to choose whether
+to continue with running batch forecasts or not.
+
+
+### View dashboard
+
+There are two dashboard views. One defines the data processing workflows
+and is for application developers. The other is for policymakers and shows
+the device network and corresponding weather and application information.
+
+### Reset system
+
+To run another demo, you need to reset the system state. A `make` target
+makes this a simple task. Be careful: it also makes it easy to lose all your
+work, since it deletes everything in the database!!
+
+```
+make reset
+```
+
+
+## Viewing the dashboard
+### Policymaker dashboard
+
+The end-user reporting dashboard for decisionmakers and policymakers is 
+located at `http://localhost:9002/dashboar/`. 
+
+
+### System administration dashboard
+The workflows that define the processing jobs are defined in Node RED.
+They are accessible at `http://localhost:9002/#flow/`.
+
+
