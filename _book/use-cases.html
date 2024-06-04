@@ -108,11 +108,10 @@
 <li class="chapter" data-level="5.2" data-path="use-cases.html"><a href="use-cases.html#precision-agriculture"><i class="fa fa-check"></i><b>5.2</b> Precision agriculture</a>
 <ul>
 <li class="chapter" data-level="5.2.1" data-path="use-cases.html"><a href="use-cases.html#dry-soil-forecasting"><i class="fa fa-check"></i><b>5.2.1</b> Dry soil forecasting</a></li>
-<li class="chapter" data-level="5.2.2" data-path="use-cases.html"><a href="use-cases.html#watering-schedules"><i class="fa fa-check"></i><b>5.2.2</b> Watering schedules</a></li>
-<li class="chapter" data-level="5.2.3" data-path="use-cases.html"><a href="use-cases.html#crop-calendars"><i class="fa fa-check"></i><b>5.2.3</b> Crop calendars</a></li>
-<li class="chapter" data-level="5.2.4" data-path="use-cases.html"><a href="use-cases.html#risk-protocol-for-dry-soil"><i class="fa fa-check"></i><b>5.2.4</b> Risk protocol for dry soil</a></li>
-<li class="chapter" data-level="5.2.5" data-path="use-cases.html"><a href="use-cases.html#irrigation-control"><i class="fa fa-check"></i><b>5.2.5</b> Irrigation control</a></li>
-<li class="chapter" data-level="5.2.6" data-path="use-cases.html"><a href="use-cases.html#freeze-warnings"><i class="fa fa-check"></i><b>5.2.6</b> Freeze warnings</a></li>
+<li class="chapter" data-level="5.2.2" data-path="use-cases.html"><a href="use-cases.html#crop-watering-needs"><i class="fa fa-check"></i><b>5.2.2</b> Crop watering needs</a></li>
+<li class="chapter" data-level="5.2.3" data-path="use-cases.html"><a href="use-cases.html#risk-protocol-for-dry-soil"><i class="fa fa-check"></i><b>5.2.3</b> Risk protocol for dry soil</a></li>
+<li class="chapter" data-level="5.2.4" data-path="use-cases.html"><a href="use-cases.html#irrigation-control"><i class="fa fa-check"></i><b>5.2.4</b> Irrigation control</a></li>
+<li class="chapter" data-level="5.2.5" data-path="use-cases.html"><a href="use-cases.html#freeze-warnings"><i class="fa fa-check"></i><b>5.2.5</b> Freeze warnings</a></li>
 </ul></li>
 <li class="chapter" data-level="5.3" data-path="use-cases.html"><a href="use-cases.html#hotter-times"><i class="fa fa-check"></i><b>5.3</b> Hotter Times</a></li>
 </ul></li>
@@ -341,52 +340,71 @@ to smallholder farmers worldwide.</p>
 <li>risk protocols</li>
 <li>irrigation control</li>
 </ul>
-<div class="figure"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
-<img src="_main_files/figure-html/unnamed-chunk-5-1.png" alt="The CADP provides a common infrastructure that powers multiple concurrent use cases." width="90%" />
-<p class="caption">
-Figure 5.7: The CADP provides a common infrastructure that powers multiple concurrent use cases.
-</p>
-</div>
 <div id="dry-soil-forecasting" class="section level3 hasAnchor" number="5.2.1">
 <h3><span class="header-section-number">5.2.1</span> Dry soil forecasting<a href="use-cases.html#dry-soil-forecasting" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Forecasting dry soil is the first step in irrigation control. The forecast is simply the moisture content of the soil.</p>
+<p>Forecasting dry soil is the first step in irrigation control.
+Soil that is either too dry or too wet can be harmful to plants.
+While the optimal amount of water is specific to each plant,
+preventing over and underwatering can be accomplished simply by monitoring
+soil moisture.</p>
+<p>A soil moisture forecast can notify the farmer or gardener when soil needs
+watering.
+By waiting for a watering signal, this approach avoids overwatering,
+which conserves water.</p>
+<p>The deployment model shown in Figure <a href="use-cases.html#fig:precision-ag-1">5.7</a> is relatively
+simple. A single sensor device is required that has a soil moisture sensor
+attached to it.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:precision-ag-1"></span>
+<img src="images/precision_ag_1.png" alt="A simple installation where a single device monitors soil moisture for a crop." width="480" />
+<p class="caption">
+Figure 5.7: A simple installation where a single device monitors soil moisture for a crop.
+</p>
 </div>
-<div id="watering-schedules" class="section level3 hasAnchor" number="5.2.2">
-<h3><span class="header-section-number">5.2.2</span> Watering schedules<a href="use-cases.html#watering-schedules" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+</div>
+<div id="crop-watering-needs" class="section level3 hasAnchor" number="5.2.2">
+<h3><span class="header-section-number">5.2.2</span> Crop watering needs<a href="use-cases.html#crop-watering-needs" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Watering depends on the type of plant growing. Some plants need a lot of water while others don’t. Many plants don’t like wet roots, so watering cannot be too frequent. We need to develop these control models for each plant.</p>
-</div>
-<div id="crop-calendars" class="section level3 hasAnchor" number="5.2.3">
-<h3><span class="header-section-number">5.2.3</span> Crop calendars<a href="use-cases.html#crop-calendars" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Water needs change based on the maturity of the plant. Beans need moist soil when pods are forming. To form large roots, beets need minimal water during early growth stages to promote root development.</p>
 <p>We can extract this data from various agricultural sites, such as the Farmers Almanac. The information needs to be encoded into programmatic rules.</p>
 <p>Crop calendars show the planting season and duration for different regions.</p>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-5"></span>
 <img src="images/eafrica_ke_calendar.png" alt="Crop calendars for Kenya. Source: [@usda1]" width="300" />
 <p class="caption">
 Figure 5.8: Crop calendars for Kenya. Source: <span class="citation">(“Crop Calendars for East Africa,” <a href="#ref-usda1" role="doc-biblioref">n.d.</a>)</span>
 </p>
 </div>
-<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-7"></span>
-<img src="images/crop_temperature_guide.jpg" alt="Planting guides for different vegetables"  />
+<p>We use the approach defined by <span class="citation">Brouwer (<a href="#ref-brouwer1986" role="doc-biblioref">1986</a>)</span> that determines water need
+based on evapotranspiration <span class="math inline">\(ET_o\)</span> and a crop factor <span class="math inline">\(K_c\)</span>.</p>
+<p>TODO: Incorporate information from this webpage:
+<a href="https://www.fao.org/4/s2022e/s2022e07.htm#3.2.4%20determination%20of%20crop%20factors" class="uri">https://www.fao.org/4/s2022e/s2022e07.htm#3.2.4%20determination%20of%20crop%20factors</a></p>
+</div>
+<div id="risk-protocol-for-dry-soil" class="section level3 hasAnchor" number="5.2.3">
+<h3><span class="header-section-number">5.2.3</span> Risk protocol for dry soil<a href="use-cases.html#risk-protocol-for-dry-soil" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Knowing whether soil needs irrigation depends on a few factors. First, the crop determines the general watering schedule. Decisions are made based on reconciling watering needs with current environmental conditions. We need to know the current soil moisture level. We also want to know the future soil moisture level, which factors in weather forecasts. There’s no point watering today if it will rain tomorrow.</p>
+</div>
+<div id="irrigation-control" class="section level3 hasAnchor" number="5.2.4">
+<h3><span class="header-section-number">5.2.4</span> Irrigation control<a href="use-cases.html#irrigation-control" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<p>Automated irrigation control builds on top of the water needs forecasting model.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:precision-ag-2"></span>
+<img src="images/precision_ag_2.png" alt="A more sophisticated system with a separate device that controls an irrigation pump." width="480" />
 <p class="caption">
-Figure 5.9: Planting guides for different vegetables
+Figure 5.9: A more sophisticated system with a separate device that controls an irrigation pump.
 </p>
 </div>
 </div>
-<div id="risk-protocol-for-dry-soil" class="section level3 hasAnchor" number="5.2.4">
-<h3><span class="header-section-number">5.2.4</span> Risk protocol for dry soil<a href="use-cases.html#risk-protocol-for-dry-soil" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Knowing whether soil needs irrigation depends on a few factors. First, the crop determines the general watering schedule. Decisions are made based on reconciling watering needs with current environmental conditions. We need to know the current soil moisture level. We also want to know the future soil moisture level, which factors in weather forecasts. There’s no point watering today if it will rain tomorrow.</p>
-</div>
-<div id="irrigation-control" class="section level3 hasAnchor" number="5.2.5">
-<h3><span class="header-section-number">5.2.5</span> Irrigation control<a href="use-cases.html#irrigation-control" class="anchor-section" aria-label="Anchor link to header"></a></h3>
-<p>Automated irrigation control builds on top of the water needs forecasting model.</p>
-</div>
-<div id="freeze-warnings" class="section level3 hasAnchor" number="5.2.6">
-<h3><span class="header-section-number">5.2.6</span> Freeze warnings<a href="use-cases.html#freeze-warnings" class="anchor-section" aria-label="Anchor link to header"></a></h3>
+<div id="freeze-warnings" class="section level3 hasAnchor" number="5.2.5">
+<h3><span class="header-section-number">5.2.5</span> Freeze warnings<a href="use-cases.html#freeze-warnings" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <p>Farmers and gardeners in temperate or similar climates
 need to know when there are frosts that could damage fragile seedlings.
 Uncertainty leads to wasted time preparing for non-events or
 stress worrying about whether plants will be okay.</p>
+<p>Crop tables typically show temperature ranges that specific crops can tolerate.</p>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-6"></span>
+<img src="images/crop_temperature_guide.jpg" alt="Planting guides for different vegetables"  />
+<p class="caption">
+Figure 5.10: Planting guides for different vegetables
+</p>
+</div>
 </div>
 </div>
 <div id="hotter-times" class="section level2 hasAnchor" number="5.3">
@@ -400,6 +418,9 @@ the device network.</p>
 </div>
 <h3> References<a href="references.html#references" class="anchor-section" aria-label="Anchor link to header"></a></h3>
 <div id="refs" class="references hanging-indent">
+<div id="ref-brouwer1986">
+<p>Brouwer, Heibloem, C. 1986. <em>Irrigation Water Management: Irrigation Water Needs</em>. Food; Agriculture Organization of the United Nations. <a href="https://www.fao.org/4/s2022e/s2022e00.htm#Contents">https://www.fao.org/4/s2022e/s2022e00.htm#Contents</a>.</p>
+</div>
 <div id="ref-usda1">
 <p>“Crop Calendars for East Africa.” n.d. <em>USDA</em>. <a href="https://ipad.fas.usda.gov/rssiws/al/crop_calendar/eafrica.aspx">https://ipad.fas.usda.gov/rssiws/al/crop_calendar/eafrica.aspx</a>.</p>
 </div>

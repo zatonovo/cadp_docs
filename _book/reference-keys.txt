@@ -5,9 +5,10 @@ fig:cadp-ews-quebec
 fig:mosquito-abundance-pdes
 fig:cadp-device
 fig:unnamed-chunk-4
+fig:precision-ag-1
 fig:unnamed-chunk-5
+fig:precision-ag-2
 fig:unnamed-chunk-6
-fig:unnamed-chunk-7
 fig:device-networking
 fig:infrastructure-deployments
 preface
@@ -35,8 +36,7 @@ heat-risk
 mosquito-borne-infectious-disease
 precision-agriculture
 dry-soil-forecasting
-watering-schedules
-crop-calendars
+crop-watering-needs
 risk-protocol-for-dry-soil
 irrigation-control
 freeze-warnings

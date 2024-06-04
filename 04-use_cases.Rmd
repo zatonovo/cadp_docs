@@ -194,21 +194,31 @@ We phase in the approach with the following steps:
 - risk protocols
 - irrigation control
 
-```{r, echo=FALSE, engine='tikz', out.width='90%', fig.ext='png', fig.cap='The CADP provides a common infrastructure that powers multiple concurrent use cases.'}
-\begin{tikzpicture}
-\node[rectangle,draw, minimum width=2cm, minimum height=.6cm] (foo) (0,0) {};
-\end{tikzpicture}
-```
 
 ### Dry soil forecasting
 
-Forecasting dry soil is the first step in irrigation control. The forecast is simply the moisture content of the soil.
+Forecasting dry soil is the first step in irrigation control.
+Soil that is either too dry or too wet can be harmful to plants.
+While the optimal amount of water is specific to each plant,
+preventing over and underwatering can be accomplished simply by monitoring
+soil moisture.
 
-### Watering schedules
+A soil moisture forecast can notify the farmer or gardener when soil needs
+watering.
+By waiting for a watering signal, this approach avoids overwatering,
+which conserves water.
+
+The deployment model shown in Figure \@ref(fig:precision-ag-1) is relatively
+simple. A single sensor device is required that has a soil moisture sensor
+attached to it.
+
+```{r precision-ag-1, echo=FALSE, fig.align='center', fig.cap="A simple installation where a single device monitors soil moisture for a crop."}
+knitr::include_graphics('images/precision_ag_1.png')
+```
+
+### Crop watering needs
 
 Watering depends on the type of plant growing. Some plants need a lot of water while others don’t. Many plants don’t like wet roots, so watering cannot be too frequent. We need to develop these control models for each plant.
-
-### Crop calendars
 
 Water needs change based on the maturity of the plant. Beans need moist soil when pods are forming. To form large roots, beets need minimal water during early growth stages to promote root development.
 
@@ -220,15 +230,22 @@ Crop calendars show the planting season and duration for different regions.
 knitr::include_graphics('images/eafrica_ke_calendar.png')
 ```
 
-```{r, echo=FALSE, fig.align='center', fig.cap="Planting guides for different vegetables"}
-knitr::include_graphics('images/crop_temperature_guide.jpg')
-```
+We use the approach defined by @brouwer1986 that determines water need
+based on evapotranspiration $ET_o$ and a crop factor $K_c$.
+
+TODO: Incorporate information from this webpage:
+https://www.fao.org/4/s2022e/s2022e07.htm#3.2.4%20determination%20of%20crop%20factors
+
 
 ### Risk protocol for dry soil
 Knowing whether soil needs irrigation depends on a few factors. First, the crop determines the general watering schedule. Decisions are made based on reconciling watering needs with current environmental conditions. We need to know the current soil moisture level. We also want to know the future soil moisture level, which factors in weather forecasts. There’s no point watering today if it will rain tomorrow.
 
 ### Irrigation control
 Automated irrigation control builds on top of the water needs forecasting model.
+
+```{r precision-ag-2, echo=FALSE, fig.align='center', fig.cap="A more sophisticated system with a separate device that controls an irrigation pump."}
+knitr::include_graphics('images/precision_ag_2.png')
+```
 
 ### Freeze warnings
 
@@ -237,12 +254,11 @@ need to know when there are frosts that could damage fragile seedlings.
 Uncertainty leads to wasted time preparing for non-events or 
 stress worrying about whether plants will be okay.
 
-\begin{enumerate}
-\item Install device in observation area
-\item Enable freeze warning alerts
-\end{enumerate}
+Crop tables typically show temperature ranges that specific crops can tolerate.
 
-
+```{r, echo=FALSE, fig.align='center', fig.cap="Planting guides for different vegetables"}
+knitr::include_graphics('images/crop_temperature_guide.jpg')
+```
 
 ## Hotter Times
 
