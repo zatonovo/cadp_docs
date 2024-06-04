@@ -9,9 +9,9 @@ documentclass: book
 bibliography: ["book.bib"]
 biblio-style: apalike
 link-citations: yes
-header-includes:
-  - \usepackage{tikz}
-  - \usepackage{pgfplots}
+header-includes: |
+    \usepackage{tikz}
+    \usepackage{pgfplots}
 ---
 
 ```{r, echo=FALSE}

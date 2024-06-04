@@ -1,0 +1,7 @@
+# Mobile app
+
+A mobile application is used to mediate the network connection for devices
+in remote areas. It is also used to deliver alerts to users.
+Using the device as an alert delivery mechanism ensures users have the device
+installed and able to act as a data transport for devices.
+

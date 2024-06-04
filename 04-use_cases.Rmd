@@ -16,9 +16,17 @@ and mosquito abundance information.
 \end{figure}
 
 
+```{r, echo=FALSE, engine='tikz', out.width='90%', fig.ext='png', fig.cap='The CADP provides a common infrastructure that powers multiple concurrent use cases.'}
 \begin{tikzpicture}
-\draw (0,0) circle (2cm);
+\node[rectangle,draw, minimum height=1cm, minimum width=4cm] (platform) at (0,0) {Platform};
+\node[rectangle,draw, minimum height=1cm, minimum width=4cm] (device) at (4,0) {Devices};
+\node[rectangle,draw, minimum height=2cm, minimum width=8cm] (apps) at (2,1.5) {};
+
+\node[rectangle,draw, minimum height=.6cm, minimum width=7.6cm] (use1) at (2,0.9) {irrigation control};
+\node[rectangle,draw, minimum height=.6cm, minimum width=7.6cm] (use2) at (2,1.5) {malaria EWS};
+\node[rectangle,draw, minimum height=.6cm, minimum width=7.6cm] (use3) at (2,2.1) {heat risk EWS};
 \end{tikzpicture}
+```
 
 ## Public health
 
@@ -160,8 +168,36 @@ knitr::include_graphics('images/cadp_device.png')
 
 ## Precision agriculture
 
+Helping farmers in Africa was the genesis of this project.
+The CADP has the potential to accelerate precision agriculture initiatives.
+Precision agriculture can increase crop yields and protect against
+drought (food security) by conserving water usage.
+
+Reducing water usage also improves public health.
+Many areas rely on rain water as their primary potable water source.
+That means irrigation is often competing with personal hydration for water.
+Optimizing water usage means there can be sufficient water for both needs.
+
 ```{r, echo=FALSE, fig.align='center', fig.cap="UDSM professors and agronomy staff standing behind a prototype weather station device."}
 knitr::include_graphics('images/IMG_20240220_013145.jpg')
+```
+
+Precision agriculture is a complex field.
+Our aim is to simplify the process and reduce its cost to make it accessible
+to smallholder farmers worldwide.
+
+We phase in the approach with the following steps:
+
+- dry soil forecasting
+- watering schedules
+- crop calendars
+- risk protocols
+- irrigation control
+
+```{r, echo=FALSE, engine='tikz', out.width='90%', fig.ext='png', fig.cap='The CADP provides a common infrastructure that powers multiple concurrent use cases.'}
+\begin{tikzpicture}
+\node[rectangle,draw, minimum width=2cm, minimum height=.6cm] (foo) (0,0) {};
+\end{tikzpicture}
 ```
 
 ### Dry soil forecasting
@@ -172,11 +208,21 @@ Forecasting dry soil is the first step in irrigation control. The forecast is si
 
 Watering depends on the type of plant growing. Some plants need a lot of water while others don’t. Many plants don’t like wet roots, so watering cannot be too frequent. We need to develop these control models for each plant.
 
-### Crop development
+### Crop calendars
 
 Water needs change based on the maturity of the plant. Beans need moist soil when pods are forming. To form large roots, beets need minimal water during early growth stages to promote root development.
 
 We can extract this data from various agricultural sites, such as the Farmers Almanac. The information needs to be encoded into programmatic rules.
+
+Crop calendars show the planting season and duration for different regions.
+
+```{r, echo=FALSE, fig.align='center', fig.cap="Crop calendars for Kenya. Source: [@usda1]"}
+knitr::include_graphics('images/eafrica_ke_calendar.png')
+```
+
+```{r, echo=FALSE, fig.align='center', fig.cap="Planting guides for different vegetables"}
+knitr::include_graphics('images/crop_temperature_guide.jpg')
+```
 
 ### Risk protocol for dry soil
 Knowing whether soil needs irrigation depends on a few factors. First, the crop determines the general watering schedule. Decisions are made based on reconciling watering needs with current environmental conditions. We need to know the current soil moisture level. We also want to know the future soil moisture level, which factors in weather forecasts. There’s no point watering today if it will rain tomorrow.
@@ -206,9 +252,3 @@ the device network.
 
 All of the layers discussed above can be displayed on Hotter Times.
 
-## Mobile app
-
-A mobile application is used to mediate the network connection for devices
-in remote areas. It is also used to deliver alerts to users.
-Using the device as an alert delivery mechanism ensures users have the device
-installed and able to act as a data transport for devices.

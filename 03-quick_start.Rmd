@@ -23,7 +23,7 @@ script to ensure you have the tools you need to build the system.
 #### Windows users
 
 If your primary operating system is Windows, you will need to install the
-Windows Subsystem for Linux. This will give you `bash` and likely `make.
+Windows Subsystem for Linux. This will give you `bash` and likely `make`.
 
 #### Mac users
 
@@ -136,7 +136,7 @@ make reset
 ### Policymaker dashboard
 
 The end-user reporting dashboard for decisionmakers and policymakers is 
-located at `http://localhost:9002/dashboar/`. 
+located at `http://localhost:9002/dashboard/`. 
 
 
 ### System administration dashboard

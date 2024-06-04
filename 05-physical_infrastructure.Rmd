@@ -18,7 +18,7 @@ exist in proximity to devices but they are no fixed internet gateways.
 We call the mobile phones ephemeral gateways because they may disappear 
 at any time.
 
-Ephemeral gateways offer a temporary network connection. 
+Ephemeral gateways (EGs) offer a temporary network connection. 
 The EG is responsible for pushing data to the CADP MQTT server.
 If a network connection is unavailable, 
 it will cache the data on the mobile phone until a network connection is
@@ -40,3 +40,50 @@ Only the device connected to the EG can broadcast an ack back.
 In the event that multiple EGs are available,
 each device is responsible for choosing the device to use as the target EG.
 
+
+## Direct WiFi connections
+
+Devices connected via WiFi will start a MQTT client to send directly to
+the cloud MQTT broker.
+By default, the MQTT broker host is `mqtt.zeomancer.com`.
+
+
+## BLE connections
+
+When a smartphone connects to a device via BLE, a few things happen:
+
+- the device sends a test data packet to confirm that data is sent to the MQTT broker
+- the device waits for an ack from the smartphone
+- if successful,
+  - LoRa is activated
+  - a `internet_available` message is broadcast over LoRa
+
+
+### Data routing algorithm
+
+The data routing algorithm solves one key problem, which is the existence
+of ephemeral gateways.
+Devices are connected to each other via LoRa.
+The goal is to efficiently route data through the LoRa network to 
+devices that are connected to the network (a "connected device").
+LoRa works via a broadcast mechanism, so devices are either 
+in range or out of range of a connected device.
+
+If a device is in range, then the device simply broadcasts its data to
+the target connected device.
+Any other device that receives the message will ignore the message
+if the target id does not match its device id.
+
+For a device that is out of range, it will send data to the nearest device
+in range of a connected device. 
+The devices can be modeled as a graph where each device is a node
+and edges represent the signal strength between them.
+We can define two relevant distance metrics between two arbitrary nodes:
+
+- the number of edges (aka hops) between nodes;
+- the harmonic mean of the signal strength of the edges separating the nodes.
+
+A device chooses a target device by considering the harmonic mean of 
+the signal strengths between it and a connected device.
+Generally, the device should choose the path with the highest value.
+Note that this may change as EGs can move around and disappear altogether.
