@@ -65,11 +65,34 @@ For software, the roles can include:
 
 The kanban itself is simply a set of columns in a particular order.
 The columns hold cards or stories that define work to be done.
-While any columns are allowed, I use this set as a standard:
+Each column represents the state of the cards within the column.
+While any columns are allowed, I use a standard set. 
+Figure \@ref(fig:kanban-states) shows the relationship between the column states 
+and how cards can move between those states.
 
-- ideas
-- backlog
-- in progress
-- blocked
-- for review
-- done
+```{r kanban-states, echo=FALSE, engine='tikz', out.width='90%', fig.ext='png', fig.cap='A state diagram representing where cards can move from each column. The starting state is always Ideas, and the end state is always Done.'}
+\begin{tikzpicture}
+\node[rectangle,draw, minimum height=1cm, minimum width=3cm] (ideas) at (0,2) {Ideas};
+\node[rectangle,draw, minimum height=1cm, minimum width=3cm] (backlog) at (4,2) {Backlog};
+\node[rectangle,draw, minimum height=1cm, minimum width=3cm] (progress) at (8,2) {In Progress};
+\node[rectangle,draw, minimum height=1cm, minimum width=3cm] (blocked) at (8,0) {Blocked};
+\node[rectangle,draw, minimum height=1cm, minimum width=3cm] (review) at (12,2) {For Review};
+\node[rectangle,draw, minimum height=1cm, minimum width=3cm] (done) at (16,2) {Done};
+
+\draw[-stealth] (ideas) -- (backlog);
+\draw[-stealth] (backlog) -- (progress);
+\draw[stealth-stealth] (progress) -- (review);
+\draw[stealth-stealth] (progress) -- (blocked);
+\draw[-stealth] (review) -- (done);
+\end{tikzpicture}
+```
+
+Here is a description of each column state:
+
+- ideas: represents a proposed work item. Anyone can add a card to ideas, but only the product owner can move a card from ideas into the backlog.
+- backlog: represents prioritized work that has (sufficiently) complete requirements. This column acts as a queue.
+- in progress: represents work that is actively being worked on. Individual contributors move cards from the Backlog into In Progress and assign themselves to the card. To minimize ambiguity, there should be one card owner that is ultimately responsible for the completion of the card. Typically people add an update each day they work on the card. This is critical as it provides visibility into the process and eliminates the need for status updates or in-person meetings!
+- blocked: represents a stuck state, where an external situation is preventing forward progress. Card owners move cards from In Progress to Blocked and must include an explanation of the blocker. The card owner is responsible for coordinating the solution to unblock the card. Once a card is unblocked, the card owner moves the card back to In Progress.
+- for review: when work is finished on a card (code complete), the card owner moves the card to For Review. She must tag a reviewer and follow up to ensure the card is reviewed in a timely manner. Depending on the team, a reviewer can be another individual contributor or the product owner. If there is significant work to be done for a review, the card owner may move the card back to In Progress. For simple issues, it can remain in For Review.
+- done: work that has gotten a successful review is moved here by the card owner. It is up to the team to agree on the definition of "done". This state can signify code has been merged to the master branch, deployed into a particular environment, or something else.
+

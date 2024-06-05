@@ -11,6 +11,7 @@ fig:precision-ag-2
 fig:unnamed-chunk-6
 fig:device-networking
 fig:infrastructure-deployments
+fig:kanban-states
 preface
 license
 overview

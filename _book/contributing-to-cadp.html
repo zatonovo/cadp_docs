@@ -258,14 +258,24 @@ For software, the roles can include:</p>
 </ul>
 <p>The kanban itself is simply a set of columns in a particular order.
 The columns hold cards or stories that define work to be done.
-While any columns are allowed, I use this set as a standard:</p>
+Each column represents the state of the cards within the column.
+While any columns are allowed, I use a standard set.
+Figure <a href="contributing-to-cadp.html#fig:kanban-states">11.1</a> shows the relationship between the column states
+and how cards can move between those states.</p>
+<div class="figure"><span style="display:block;" id="fig:kanban-states"></span>
+<img src="_main_files/figure-html/kanban-states-1.png" alt="A state diagram representing where cards can move from each column. The starting state is always Ideas, and the end state is always Done." width="90%" />
+<p class="caption">
+Figure 11.1: A state diagram representing where cards can move from each column. The starting state is always Ideas, and the end state is always Done.
+</p>
+</div>
+<p>Here is a description of each column state:</p>
 <ul>
-<li>ideas</li>
-<li>backlog</li>
-<li>in progress</li>
-<li>blocked</li>
-<li>for review</li>
-<li>done</li>
+<li>ideas: represents a proposed work item. Anyone can add a card to ideas, but only the product owner can move a card from ideas into the backlog.</li>
+<li>backlog: represents prioritized work that has (sufficiently) complete requirements. This column acts as a queue.</li>
+<li>in progress: represents work that is actively being worked on. Individual contributors move cards from the Backlog into In Progress and assign themselves to the card. To minimize ambiguity, there should be one card owner that is ultimately responsible for the completion of the card. Typically people add an update each day they work on the card. This is critical as it provides visibility into the process and eliminates the need for status updates or in-person meetings!</li>
+<li>blocked: represents a stuck state, where an external situation is preventing forward progress. Card owners move cards from In Progress to Blocked and must include an explanation of the blocker. The card owner is responsible for coordinating the solution to unblock the card. Once a card is unblocked, the card owner moves the card back to In Progress.</li>
+<li>for review: when work is finished on a card (code complete), the card owner moves the card to For Review. She must tag a reviewer and follow up to ensure the card is reviewed in a timely manner. Depending on the team, a reviewer can be another individual contributor or the product owner. If there is significant work to be done for a review, the card owner may move the card back to In Progress. For simple issues, it can remain in For Review.</li>
+<li>done: work that has gotten a successful review is moved here by the card owner. It is up to the team to agree on the definition of “done”. This state can signify code has been merged to the master branch, deployed into a particular environment, or something else.</li>
 </ul>
 
 </div>
