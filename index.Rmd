@@ -2,9 +2,8 @@
 title: Getting Started with the Climate Adaptation Data Platform
 author: Brian Lee Yung Rowe
 date: "`r Sys.Date()`"
-site: "bookdown::bookdown_site"
-output:
-  bookdown::gitbook: default
+site: bookdown::bookdown_site
+output: bookdown::gitbook
 documentclass: book
 bibliography: ["book.bib"]
 biblio-style: apalike
@@ -20,7 +19,25 @@ library(knitr)
 
 # Preface
 
-# License
+We are witnessing the effects of climate change quickly accelerate.
+The consequences of these changes are just starting to be felt.
+To avoid widespread suffering, we need to similarly accelerate climate
+adaptation initiatives.
+
+The [Climate Adaptation Data Platform (CADP)](https://github.com/zatonovo/zeomancer_system) aims to do just that.
+By bringing together multiple stakeholders,
+we can solve multiple climate-related challenges concurrently.
+This drives down costs and increases reach.
+
+Consistent with the above goal, 
+the [CADP is an open source project](https://github.com/zatonovo/zeomancer_system).
+This guide details how to use and develop the CADP. 
+Those wishing to contribute to the CADP should read this guide first.
+Those who only want to use the CADP can skip most of the theory and focus
+on the latter half of the book.
+
+
+## License
 Copyright (C) 2024 Zato Novo, LLC.
 
 Permission is granted to copy, distribute and/or modify this document

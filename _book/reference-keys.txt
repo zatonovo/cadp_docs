@@ -63,4 +63,9 @@ air-temperature
 soil-moisture
 risk-protocols
 soil-moisture-1
+contributing-to-cadp
+our-kanban-process
+lean-production
+loose-coupling-and-asynchronous-communication
+kanban-for-project-management
 references

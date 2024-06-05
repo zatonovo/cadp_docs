@@ -1,0 +1,54 @@
+# Contributing to CADP
+
+## Our Kanban process
+
+We follow a Kanban process that Brian perfected over six years.
+The approach is designed to minimize coordination time and miscommunication
+in a distributed and asynchronous collaboration environment.
+The process was successful during COVID while managing a remote team in
+the Philippines. 
+
+### Lean production
+Kanban literally means "sign board" in Japanese.
+Its history is steeped in lean production and like most of lean production,
+its genesis occurred at Toyota.
+To really understand the Kanban approach it's necessary to understand
+a bit about lean production,
+and in particular the concept of efficiency and waste.
+Our starting assumption is that we want to optimize processes so they
+are maximally efficient.
+What does it mean to be efficient?
+One definition focuses on what it isn't or doesn't have, which is waste.
+Lean production aims to remove as much waste from a process as possible.
+The more waste is removed, the more efficient the process.
+
+Lean production defines seven wastes, often abbreviated as TIMWOOD.
+These are
+
+- transportation
+- inventory
+- movement
+- waiting
+- over production
+- over processing
+- defects
+
+While the original context was physical production, 
+the seven wastes of lean transfer remarkably well to business processes,
+software development, and even AI systems.
+
+### Loose coupling and asynchronous communication
+The original kanbans were pieces of paper that were placed at the bottom of a
+parts bin. This sign board communicated to the consumer of those parts that
+it was time to get more parts. They would take the card to the producer of
+those parts so they could begin making more.
+
+Kanban is thus an integral part of just-in-time (JIT) production,
+where said production is driven by a pull process (initiated by demand).
+The genius of kanban is that each producer operates independently and
+coordination is asynchronous. An effective kanban process doesn't
+require a lot of meetings nor does it require a lot of coordination.
+All it requires is *an understanding of and adherence to the process*.
+
+### Kanban for project management
+Outside of a physical production process, a centralized kanban board

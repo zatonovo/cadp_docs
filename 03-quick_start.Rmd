@@ -86,6 +86,10 @@ The previous state will be retained when you start back up.
 
 ## Platform Demos
 A number of demos can be deployed into your running system.
+These are not installed by default because we want a clean system 
+after initialization.
+They also require a lot of weather data,
+which is impractical to include with the system.
 
 ### Get available demos
 

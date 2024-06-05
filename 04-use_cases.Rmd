@@ -10,7 +10,7 @@ and mosquito abundance information.
 
 \begin{figure}
 \centering
-\includegraphics[width=.8\linewidth]{cadp_applications}
+\includegraphics[width=.8\linewidth]{images/cadp_applications}
 \caption{Use case stacking enables the CADP to power multiple simultaneous applications across public health and food security.}
 \label{fig:cadp_applications}
 \end{figure}
