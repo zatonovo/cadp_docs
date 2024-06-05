@@ -51,4 +51,25 @@ require a lot of meetings nor does it require a lot of coordination.
 All it requires is *an understanding of and adherence to the process*.
 
 ### Kanban for project management
-Outside of a physical production process, a centralized kanban board
+Outside of a physical production process,
+a centralized kanban board can mediate communication between relevant parties.
+Each person fulfills a particular role and has certain actions they can take.
+Note that a person can fulfill multiple roles.
+For software, the roles can include:
+
+- product owner: responsible for defining requirements and setting priorities
+- individual contributor: responsible for implementing requirements
+- tester: responsible for testing implementations and documenting errors
+- deployer: responsible for deploying code to different environments
+
+
+The kanban itself is simply a set of columns in a particular order.
+The columns hold cards or stories that define work to be done.
+While any columns are allowed, I use this set as a standard:
+
+- ideas
+- backlog
+- in progress
+- blocked
+- for review
+- done
