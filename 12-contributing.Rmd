@@ -25,17 +25,28 @@ The more waste is removed, the more efficient the process.
 Lean production defines seven wastes, often abbreviated as TIMWOOD.
 These are
 
-- transportation
-- inventory
-- movement
-- waiting
-- over production
-- over processing
-- defects
+- transportation: moving parts, inventory from one location to another. Long distances or small capacities result in waiting and expose materials to transportation risk
+- inventory: storage of parts and goods. Inventory can get damaged or obsolete, leading to wasted resources
+- movement: physical movement of the body, like walking to a copy machine. Movement expends energy and consumes time. Less physical movement for repeated tasks saves time
+- waiting: idle time waiting on someone else (or a dependency). Time is money; you're typically paying someone to do nothing
+- over production: creating more than necessary. Excess becomes inventory, so money and time is spent producing things that don't provide value
+- over processing: doing more than necessary (e.g., over-thinking, over-designing). Ignoring the Pareto principle and the law of diminishing returns leads to spending a lot of time to achieve little incremental improvement
+- defects: manufacturing errors, communication errors.
 
 While the original context was physical production, 
 the seven wastes of lean transfer remarkably well to business processes,
 software development, and even AI systems.
+It's particularly important for data and data science:
+
+- transportation: moving data from one server to another. Data transfer rates and bandwidth limit the rate of delivery.
+- inventory: storage of data and artifacts. Like inventory, data can become obsolete, and it costs money to store it.
+- movement: manual steps in processes. The more steps with human involvement, the longer it takes to accomplish and the more error prone they are
+- waiting: for data to download/upload, model to finish running, coordination
+- over production: creating too much data
+- over processing: over-designing a process, over-fitting a model
+- defects: data errors, model errors, process errors, communication errors
+
+
 
 ### Loose coupling and asynchronous communication
 The original kanbans were pieces of paper that were placed at the bottom of a
@@ -96,3 +107,13 @@ Here is a description of each column state:
 - for review: when work is finished on a card (code complete), the card owner moves the card to For Review. She must tag a reviewer and follow up to ensure the card is reviewed in a timely manner. Depending on the team, a reviewer can be another individual contributor or the product owner. If there is significant work to be done for a review, the card owner may move the card back to In Progress. For simple issues, it can remain in For Review.
 - done: work that has gotten a successful review is moved here by the card owner. It is up to the team to agree on the definition of "done". This state can signify code has been merged to the master branch, deployed into a particular environment, or something else.
 
+
+### The need for discipline
+
+Kanban works because of the visual signaling and the clear rules for each role.
+When everyone adheres to the rules of the board,
+communication errors are reduced since people have the same interpretation of the status of a card.
+It's similar to driving. The rules of a four-way stop sign are clear.
+When everyone follows the rules, the flow is efficient and there are minimal delays or accidents.
+But the moment one person ignores the rules, then the expectation changes. 
+It is no longer clear what the protocol is, and accidents can happen.

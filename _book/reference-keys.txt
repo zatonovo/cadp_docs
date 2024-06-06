@@ -69,4 +69,5 @@ our-kanban-process
 lean-production
 loose-coupling-and-asynchronous-communication
 kanban-for-project-management
+the-need-for-discipline
 references
