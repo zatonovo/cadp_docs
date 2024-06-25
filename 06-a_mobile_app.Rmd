@@ -1,7 +1,39 @@
 # Mobile app
 
+Our vision is to deliver on the UN's goal to have everyone protected by an
+early warning system.
+Many EWSes are outdated or out of commission.
+Others only focus on a single hazard, whereas now we need a multi-hazard EWS.
+Finally, messaging for many EWSes are often too generic to be useful.
+What people need is a personalized EWS.
+
 A mobile application is used to mediate the network connection for devices
-in remote areas. It is also used to deliver alerts to users.
+in remote areas.
+It is also used to deliver alerts to users.
 Using the device as an alert delivery mechanism ensures users have the device
 installed and able to act as a data transport for devices.
+Finally, the mobile app also provides a vehicle for users to provide
+feedback and information back to public officials.
+
+## Key user stories
+
+### I want to pair my phone to a device
+
+### I want to view recent device data
+Helps users understand the contribution they are making to the network.
+
+### I want to unpair a device
+
+### I want to view the available risk alerts I can subscribe to
+
+- public health
+  - heat risk
+  - mosquito risk
+- precision agriculture
+  - dry soil
+  - wet soil
+- municipal infrastructure
+  - flood risk
+
+### I want to subscribe to heat risk alerts
 

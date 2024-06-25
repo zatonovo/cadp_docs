@@ -19,6 +19,8 @@ The basic steps are:
 The following information is provided in the event that repairs need to be
 made to a device.
 
+- 433MHZ SX1278 LoRa Module
+
 ### Connectors 
 
 - Molex 51005-2P connector for LiPo batteries

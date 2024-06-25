@@ -7,19 +7,26 @@ The primary stakeholders are policymakers/governments, farmers,
 and individual members of the community.
 The CADP provides tangible value to each stakeholder.
 
-The magic of the CADP is that it breaks through policy paralysis by 
-creating the device and data infrastructure that policymakers need to 
-drive widespread climate adaptation efforts.
-Our hypothesis is that it's unrealistic for municipalities to deploy
-and operate sensor networks. 
-It's also too complex an undertaking for community groups to take on.
+Real-time sensor networks with integrated forecasting and AI is a
+complex undertaking.
+It requires numerous people with specialized expertise cutting across
+GIS, IOT, data science, as well as target domains like agriculture,
+environment, or public health.
 
-CADP provides an alternate path where individuals and businesses purchase
-devices that incrementally build out the infrastructure needed for
-policymakers.
+The magic of the CADP is that it manages this complexity to reduce
+the effort required to deploy such a platform.
+It also supports multiple deployment pathways to accommodate different
+situations.
+Forward-thinking municipalities can deploy the platform as a standalone
+initiative.
+Citizens can also induce action by deploying a device network
+from the bottom up. 
+These devices automatically plug into the public CADP instance,
+which helps demonstrate the value of the device network.
 
-```{r, echo=FALSE, fig.align='center', fig.cap="A prototype weather station device deployed at the University of Dar es Salaam test farm in Tanzania."}
-knitr::include_graphics('images/IMG_20240223_015836.jpg')
+
+```{r, echo=FALSE, fig.align='center', fig.cap="The CADP brings together critical data infrastructure with end-user advisory and policy tools to create value greater than the sum of its parts."}
+knitr::include_graphics('images/cadp_audience.png')
 ```
 
 This document discusses the different use cases that CADP is designed for

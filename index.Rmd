@@ -17,6 +17,8 @@ header-includes: |
 library(knitr)
 ```
 
+
+
 # Preface
 
 We are witnessing the effects of climate change quickly accelerate.

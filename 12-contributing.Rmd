@@ -117,3 +117,25 @@ It's similar to driving. The rules of a four-way stop sign are clear.
 When everyone follows the rules, the flow is efficient and there are minimal delays or accidents.
 But the moment one person ignores the rules, then the expectation changes. 
 It is no longer clear what the protocol is, and accidents can happen.
+
+
+## Micropython
+
+### UNIX port
+For development, using the UNIX port of Micropython can be helpful.
+
+Install from source:
+
+```
+$ sudo apt-get update && sudo apt-get install libffi-dev
+$ git clone git@github.com:micropython/micropython.git
+$ cd ../ports/unix
+$ make submodules
+$ make
+```
+
+or install an old (stable) version via `sudo apt-get install micropython`.
+
+After this, Micropython can now be used in the terminal by using the 
+command `micropython`. 
+It can also run a python file via `micopython foo.py`.

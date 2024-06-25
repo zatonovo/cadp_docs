@@ -8,14 +8,12 @@ The two main public health use cases only need the base set of sensors,
 which means anybody with an account can get hyperlocal heat risk
 and mosquito abundance information.
 
-\begin{figure}
-\centering
-\includegraphics[width=.8\linewidth]{images/cadp_applications}
-\caption{Use case stacking enables the CADP to power multiple simultaneous applications across public health and food security.}
-\label{fig:cadp_applications}
-\end{figure}
 
+```{r, echo=FALSE, out.width="1024px", fig.align='center', fig.cap="The CADP provides a common infrastructure that powers multiple concurrent applications. Each application can leverage the sensor data available from other applications, providing additional value."}
+knitr::include_graphics('images/cadp_use_case_stacking.png')
+```
 
+<!--
 ```{r, echo=FALSE, engine='tikz', out.width='90%', fig.ext='png', fig.cap='The CADP provides a common infrastructure that powers multiple concurrent use cases.'}
 \begin{tikzpicture}
 \node[rectangle,draw, minimum height=1cm, minimum width=4cm] (platform) at (0,0) {Platform};
@@ -27,6 +25,14 @@ and mosquito abundance information.
 \node[rectangle,draw, minimum height=.6cm, minimum width=7.6cm] (use3) at (2,2.1) {heat risk EWS};
 \end{tikzpicture}
 ```
+-->
+
+
+
+```{r, echo=FALSE, fig.align='center', fig.cap="A prototype weather station device deployed at the University of Dar es Salaam test farm in Tanzania."}
+knitr::include_graphics('images/IMG_20240223_015836.jpg')
+```
+
 
 ## Public health
 
@@ -168,12 +174,14 @@ knitr::include_graphics('images/cadp_device.png')
 
 ## Precision agriculture
 
-Helping farmers in Africa was the genesis of this project.
-The CADP has the potential to accelerate precision agriculture initiatives.
-Precision agriculture can increase crop yields and protect against
-drought (food security) by conserving water usage.
+Helping farmers increase food security in Africa was the genesis of this project.
+Optimizing water used for irrigation is one way that precision agriculture can
+increase food security.
+Unfettered irrigation has emptied aquifers across the world.
+When aquifers are depleted, rainfall becomes a more prominent source of water.
+Areas that rely on rainwater for irrigation are particularly threatened by changing climates.
 
-Reducing water usage also improves public health.
+Minimizing water usage also improves public health.
 Many areas rely on rain water as their primary potable water source.
 That means irrigation is often competing with personal hydration for water.
 Optimizing water usage means there can be sufficient water for both needs.
@@ -182,17 +190,55 @@ Optimizing water usage means there can be sufficient water for both needs.
 knitr::include_graphics('images/IMG_20240220_013145.jpg')
 ```
 
-Precision agriculture is a complex field.
-Our aim is to simplify the process and reduce its cost to make it accessible
-to smallholder farmers worldwide.
+Our goal is to make precision agriculture accessible to smallholder farmers 
+worldwide.
+We accomplish this by making the technology easy to use and affordable.
+To simplify the deployment process and ensure success,
+irrigation control can be divided into three milestones that build on each
+other.
+Illustrated in \@ref(fig:cadp-irrigation-control),
+the first stage is signaling when there will be dry soil.
+The goal is to ensure plants do not dry out.
+This step is good to get comfortable with the forecasting accuracy of the
+system and develop confidence that it behaves correctly.
+Just a single device with a soil moisture sensor is required.
+It can be placed in a garden bed that gets fairly even watering.
 
-We phase in the approach with the following steps:
+In the second stage, an evapotranspiration model is applied to the 
+device data.
+Evapotranspiration models are crop specific and determine the amount of water
+a plant loses due to evaporation (from soil) and transpiration (from leaves).
+By incorporating this model, plants can receive the optimal amount of water
+they need, not just prevent dry conditions.
+There should be noticeable improved yield at this stage.
+This step requires one device per crop.
 
-- dry soil forecasting
-- watering schedules
-- crop calendars
-- risk protocols
-- irrigation control
+The final stage brings water control into the system.
+The first two stages still require human intervention to actually water
+plants.
+The final stage is nearly fully automated,
+with the exception of the water source.
+(With additional sensors,
+the system can prevent pumping if no water is available.)
+In addition to a water source,
+stage 3 requires along with a pump, tubing, and water valves.
+Water flow meters can also be added to monitor the water usage.
+
+Automated irrigation control removes the guesswork of watering.
+With continuous monitoring the system knows how much water is available
+to the plant.
+Using the integrated evapotranspiration models and sensor data,
+the system knows how much water plants need and can provide that precise
+amount.
+The end result is optimal growing conditions that can improve yield
+while reducing the work required to manage the crops.
+
+
+
+```{r cadp-irrigation-control, echo=FALSE, out.width="1024px", fig.align='center', fig.cap="Precision irrigation control can be phased in over three key stages. In the first stage, a single device can monitor a garden. In the second stage, one device should be allocated per crop. In the final stage, pumps and valves are added to control water supply to individual crops."}
+knitr::include_graphics('images/cadp_irrigation_control_phases.png')
+```
+
 
 
 ### Dry soil forecasting
@@ -216,7 +262,7 @@ attached to it.
 knitr::include_graphics('images/precision_ag_1.png')
 ```
 
-### Crop watering needs
+### Crop water needs
 
 Watering depends on the type of plant growing. Some plants need a lot of water while others don’t. Many plants don’t like wet roots, so watering cannot be too frequent. We need to develop these control models for each plant.
 
@@ -232,12 +278,16 @@ knitr::include_graphics('images/eafrica_ke_calendar.png')
 
 We use the approach defined by @brouwer1986 that determines water need
 based on evapotranspiration $ET_o$ and a crop factor $K_c$.
+Evapotranspiration tells us how much water is transferred to the atmosphere.
+We can use these models to estimate how much water plants need to stay healthy.
+By combining these models with our sensor data,
+we can minimize the amount of water needed for irrigation. 
+
 
 TODO: Incorporate information from this webpage:
 https://www.fao.org/4/s2022e/s2022e07.htm#3.2.4%20determination%20of%20crop%20factors
 
 
-### Risk protocol for dry soil
 Knowing whether soil needs irrigation depends on a few factors. First, the crop determines the general watering schedule. Decisions are made based on reconciling watering needs with current environmental conditions. We need to know the current soil moisture level. We also want to know the future soil moisture level, which factors in weather forecasts. There’s no point watering today if it will rain tomorrow.
 
 ### Irrigation control
