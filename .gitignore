@@ -1,3 +1,7 @@
+
+
+
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
@@ -67,6 +71,15 @@ acs-*.bib
 # comment
 *.cut
 
+# ignore all .DS_Store file
+.DS_Store
+papers/**/_book/
+papers/**/lib/
+papers/**/_bookdown_files/
+*.html
+*.tex
+*.log
+
 # cprotect
 *.cpt
 
@@ -78,6 +91,7 @@ acs-*.bib
 
 # fixme
 *.lox
+
 
 # feynmf/feynmp
 *.mf
@@ -300,11 +314,4 @@ TSWLatexianTemp*
 # Uncomment the next line to have this generated file ignored.
 #*Notes.bib
 
-old
-
-# 忽略所有的 .DS_Store 文件
-.DS_Store
-
-# 忽略 papers 目录下的 _book 目录，不忽略主 cadp_docs 目录下的 _book
-/papers/_book/
 
