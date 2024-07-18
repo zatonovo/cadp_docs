@@ -77,8 +77,7 @@ _main_files
 papers/**/_book
 papers/**/libs
 papers/**/_main_files
-*.html
-*.tex
+old
 *.log
 
 # cprotect
