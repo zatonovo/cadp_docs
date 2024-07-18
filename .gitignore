@@ -73,9 +73,10 @@ acs-*.bib
 
 # ignore all .DS_Store file
 .DS_Store
-papers/**/_book/
-papers/**/lib/
-papers/**/_bookdown_files/
+_main_files
+papers/**/_book
+papers/**/libs
+papers/**/_main_files
 *.html
 *.tex
 *.log
