@@ -23,7 +23,7 @@
 <meta name="author" content="Brian Lee Yung Rowe" />
 
 
-<meta name="date" content="2024-06-24" />
+<meta name="date" content="2024-07-28" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -233,7 +233,16 @@ script to ensure you have the tools you need to build the system.</p>
 <div id="windows-users" class="section level4 hasAnchor" number="3.1.1.1">
 <h4><span class="header-section-number">3.1.1.1</span> Windows users<a href="quick-start.html#windows-users" class="anchor-section" aria-label="Anchor link to header"></a></h4>
 <p>If your primary operating system is Windows, you will need to install the
-Windows Subsystem for Linux. This will give you <code>bash</code> and likely <code>make</code>.</p>
+Windows Subsystem for Linux.
+<a href="https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers">The official instructions</a>
+explains how to install WSL and Docker.</p>
+<p>WSL installs the debian flavor of Linux.
+Make note of this, as it will help you when troubleshooting in the future.</p>
+<p>Once WSL is installed, the following tools need to be installed.
+They can be installed via the command line with</p>
+<pre><code>$ sudo apt update
+$ sudo apt install build-essential postgresql-client</code></pre>
+<p>(Note: The <code>$</code> represents the shell prompt. Do not include it in your command!)</p>
 </div>
 <div id="mac-users" class="section level4 hasAnchor" number="3.1.1.2">
 <h4><span class="header-section-number">3.1.1.2</span> Mac users<a href="quick-start.html#mac-users" class="anchor-section" aria-label="Anchor link to header"></a></h4>
@@ -246,9 +255,11 @@ That said, the system <em>should</em> run without issue on Mac OS X.</p>
 <p>Docker is required. The version used to create this repo is</p>
 <pre><code>$ docker --version
 Docker version 25.0.3, build 4debf41</code></pre>
-<p>If you are on Windows, follow
-<a href="https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers">the official instructions</a>
-for installing the Linux Subsystem for Windows and Docker desktop.</p>
+<div id="windows" class="section level4 hasAnchor" number="3.1.2.1">
+<h4><span class="header-section-number">3.1.2.1</span> Windows<a href="quick-start.html#windows" class="anchor-section" aria-label="Anchor link to header"></a></h4>
+<p>Windows users need to ensure that Docker Desktop is visible in WSL.
+There is a setting that enables this behavior.</p>
+</div>
 </div>
 </div>
 <div id="building-the-platform" class="section level2 hasAnchor" number="3.2">
@@ -264,10 +275,9 @@ are executed:</p>
 </ul>
 <p>You can use this command repeatedly. The <code>Makefile</code> is smart enough to know
 not to re-initialize the database.</p>
-<p>To verify that the system is running, you can check the logs or check
-the container statuses directly. Logs can be monitored using <code>make logs</code>,
-while the container statuses can be viewed by typing <code>docker ps</code>.
-In this latter command, the output should look something like this:</p>
+<p>To verify that the system is running, use <code>docker ps</code>. This command will show
+all the running containers tied to the CADP (nee zeomancer).
+The output should look something like this:</p>
 <pre><code>$ docker ps
 CONTAINER ID   IMAGE                                                                COMMAND                  CREATED       STATUS                   PORTS                                                                                  NAMES
 c86a8b8a34a2   zeomancer_system-weather_forecast                               &quot;tini -g -- /bin/bas…&quot;   3 hours ago   Up 3 hours (unhealthy)   443/tcp, 8888/tcp, 0.0.0.0:8180-&gt;80/tcp, :::8180-&gt;80/tcp                               zeomancer_system-weather_forecast-1
@@ -277,6 +287,10 @@ c86a8b8a34a2   zeomancer_system-weather_forecast                               &
 3bb9e8c4788a   nodered/node-red:latest                                              &quot;./entrypoint.sh&quot;        3 hours ago   Up 3 hours (healthy)     0.0.0.0:9002-&gt;1880/tcp, :::9002-&gt;1880/tcp                                              zeomancer_system-node_red-1
 dc8c438b1bf3   eclipse-mosquitto:2.0.18-openssl                                     &quot;/docker-entrypoint.…&quot;   3 hours ago   Up 3 hours               0.0.0.0:1883-&gt;1883/tcp, :::1883-&gt;1883/tcp, 0.0.0.0:9001-&gt;9001/tcp, :::9001-&gt;9001/tcp   zeomancer_system-mqtt_broker-1
 42c737867360   gcr.io/micro-dynamo-351417/bank-transaction-classification_service   &quot;bash&quot;                   9 days ago    Up 9 days                8080/tcp                                                                               laughing_mendeleev</code></pre>
+<p>Alternatively. you can check the logs for the system using <code>make logs</code>.
+This will display the current logs for ALL containers in the system.
+They will update as the system responds to events.
+To exit the log viewer, type Ctrl-C.</p>
 <p>To stop the platform, just type <code>make stop</code>.
 You can restart the platform by running <code>make run</code>.
 The previous state will be retained when you start back up.</p>

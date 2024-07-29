@@ -23,7 +23,25 @@ script to ensure you have the tools you need to build the system.
 #### Windows users
 
 If your primary operating system is Windows, you will need to install the
-Windows Subsystem for Linux. This will give you `bash` and likely `make`.
+Windows Subsystem for Linux. 
+[The official instructions](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers)
+explains how to install WSL and Docker.
+
+WSL installs the debian flavor of Linux.
+Make note of this, as it will help you when troubleshooting in the future.
+
+Once WSL is installed, the following tools need to be installed.
+They can be installed via the command line with
+
+```
+$ sudo apt update
+$ sudo apt install build-essential postgresql-client
+```
+
+(Note: The `$` represents the shell prompt. Do not include it in your command!)
+
+
+
 
 #### Mac users
 
@@ -39,9 +57,9 @@ $ docker --version
 Docker version 25.0.3, build 4debf41
 ```
 
-If you are on Windows, follow 
-[the official instructions](https://learn.microsoft.com/en-us/windows/wsl/tutorials/wsl-containers)
-for installing the Linux Subsystem for Windows and Docker desktop.
+#### Windows
+Windows users need to ensure that Docker Desktop is visible in WSL.
+There is a setting that enables this behavior.
 
 
 ## Building the Platform
@@ -61,10 +79,10 @@ are executed:
 You can use this command repeatedly. The `Makefile` is smart enough to know
 not to re-initialize the database.
 
-To verify that the system is running, you can check the logs or check
-the container statuses directly. Logs can be monitored using `make logs`,
-while the container statuses can be viewed by typing `docker ps`.
-In this latter command, the output should look something like this:
+To verify that the system is running, use `docker ps`. This command will show
+all the running containers tied to the CADP (nee zeomancer).
+The output should look something like this:
+
 
 ```
 $ docker ps
@@ -78,6 +96,10 @@ dc8c438b1bf3   eclipse-mosquitto:2.0.18-openssl                                 
 42c737867360   gcr.io/micro-dynamo-351417/bank-transaction-classification_service   "bash"                   9 days ago    Up 9 days                8080/tcp                                                                               laughing_mendeleev
 ```
 
+Alternatively.  you can check the logs for the system using `make logs`.
+This will display the current logs for ALL containers in the system.
+They will update as the system responds to events.
+To exit the log viewer, type Ctrl-C.
 
 To stop the platform, just type `make stop`.
 You can restart the platform by running `make run`.

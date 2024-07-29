@@ -1,4 +1,4 @@
-# Mobile app
+# Mobile app {#mobile-app}
 
 Our vision is to deliver on the UN's goal to have everyone protected by an
 early warning system.

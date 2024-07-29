@@ -8,9 +8,9 @@ fig:cadp-device
 fig:unnamed-chunk-6
 fig:cadp-irrigation-control
 fig:precision-ag-1
-fig:unnamed-chunk-7
+fig:usda-crop-calendar
 fig:precision-ag-2
-fig:unnamed-chunk-8
+fig:unnamed-chunk-7
 fig:device-networking
 fig:infrastructure-deployments
 fig:kanban-states
@@ -23,6 +23,7 @@ linux
 windows-users
 mac-users
 docker
+windows
 building-the-platform
 platform-demos
 get-available-demos

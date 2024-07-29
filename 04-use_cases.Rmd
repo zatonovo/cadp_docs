@@ -9,7 +9,7 @@ which means anybody with an account can get hyperlocal heat risk
 and mosquito abundance information.
 
 
-```{r, echo=FALSE, out.width="1024px", fig.align='center', fig.cap="The CADP provides a common infrastructure that powers multiple concurrent applications. Each application can leverage the sensor data available from other applications, providing additional value."}
+```{r, echo=FALSE, out.width="1024px", fig.align='center', fig.cap="The CADP provides a common infrastructure that powers multiple concurrent applications. Green boxes indicate components that only need to be built once. Blue boxes are components that are installed at each site. Every use case can leverage sensor data produced by other use cases, increasing the return on the infrastructure investment."}
 knitr::include_graphics('images/cadp_use_case_stacking.png')
 ```
 
@@ -235,7 +235,7 @@ while reducing the work required to manage the crops.
 
 
 
-```{r cadp-irrigation-control, echo=FALSE, out.width="1024px", fig.align='center', fig.cap="Precision irrigation control can be phased in over three key stages. In the first stage, a single device can monitor a garden. In the second stage, one device should be allocated per crop. In the final stage, pumps and valves are added to control water supply to individual crops."}
+```{r cadp-irrigation-control, echo=FALSE, out.width="1024px", fig.align='center', fig.cap="Precision irrigation control can be phased in over three key stages. Stages use a combination of pre-built software components (green) and site-specific hardware components (blue). In the first stage, a single device can monitor a garden. In the second stage, one device should be allocated per crop. In the final stage, pumps and valves are added to control water supply to individual crops."}
 knitr::include_graphics('images/cadp_irrigation_control_phases.png')
 ```
 
@@ -258,44 +258,106 @@ The deployment model shown in Figure \@ref(fig:precision-ag-1) is relatively
 simple. A single sensor device is required that has a soil moisture sensor
 attached to it.
 
-```{r precision-ag-1, echo=FALSE, fig.align='center', fig.cap="A simple installation where a single device monitors soil moisture for a crop."}
+```{r precision-ag-1, echo=FALSE, out.width='1024px', fig.align='center', fig.cap="A simple installation where a single device monitors soil moisture for a crop."}
 knitr::include_graphics('images/precision_ag_1.png')
 ```
 
+Prior to deploying devices, the following tasks must be completed:
+
+- Count distinct garden areas to monitor. It's fine to start with one small area or count all distinct crops in contiguous areas.
+- Identify Internet connectivity:
+  + WiFi connection via fixed Internet connection
+  + cellular connection via smartphone
+
+If Internet connectivity is only available via a smartphone,
+see Chapter \@ref(mobile-app) that discusses the corresponding mobile app.
+
+The actual installation is simple: just mount the device at least a 30 cm (12")
+above the ground and push the soil sensor into the earth.
+
+
 ### Crop water needs
 
-Watering depends on the type of plant growing. Some plants need a lot of water while others don’t. Many plants don’t like wet roots, so watering cannot be too frequent. We need to develop these control models for each plant.
+Every plant has its own water needs.
+In addition to the crop,
+the amount of water needed further depends on the maturity of the crop.
+Beans need moist soil when pods are forming.
+Beets should receive minimal water during early growth stages 
+to promote root development.
 
-Water needs change based on the maturity of the plant. Beans need moist soil when pods are forming. To form large roots, beets need minimal water during early growth stages to promote root development.
+Crop calendars, such as depicted in Figure \@ref(fig:usda-crop-calendar)
+show the planting season and basic growth stages of different crops.
 
-We can extract this data from various agricultural sites, such as the Farmers Almanac. The information needs to be encoded into programmatic rules.
-
-Crop calendars show the planting season and duration for different regions.
-
-```{r, echo=FALSE, fig.align='center', fig.cap="Crop calendars for Kenya. Source: [@usda1]"}
+```{r usda-crop-calendar, echo=FALSE, out.width='768px', fig.align='center', fig.cap="Crop calendars for Kenya. Source: [@usda1]"}
 knitr::include_graphics('images/eafrica_ke_calendar.png')
 ```
-
-We use the approach defined by @brouwer1986 that determines water need
-based on evapotranspiration $ET_o$ and a crop factor $K_c$.
+More precise water needs are provided by evapotranspiration models.
 Evapotranspiration tells us how much water is transferred to the atmosphere.
 We can use these models to estimate how much water plants need to stay healthy.
 By combining these models with our sensor data,
 we can minimize the amount of water needed for irrigation. 
 
+We use the approach defined by @brouwer1986 that determines water need
+based on evapotranspiration $ET_o$ and a crop factor $K_c$:
 
-TODO: Incorporate information from this webpage:
-https://www.fao.org/4/s2022e/s2022e07.htm#3.2.4%20determination%20of%20crop%20factors
+$$ ET_{crop} = ET_o K_c $$
 
+The [reference evapotranspiration](https://www.fao.org/4/s2022e/s2022e07.htm#3.2.4%20determination%20of%20crop%20factors)
+variable is computed per device based on local climatic factors.
 
-Knowing whether soil needs irrigation depends on a few factors. First, the crop determines the general watering schedule. Decisions are made based on reconciling watering needs with current environmental conditions. We need to know the current soil moisture level. We also want to know the future soil moisture level, which factors in weather forecasts. There’s no point watering today if it will rain tomorrow.
+Whether a crop needs water on a given day depends on the daily water need
+and the current moisture content of the soil.
+If the soil is too dry, it cannot provide the moisture the plant requires.
+Under this situation, the plant would require watering.
+However, we don't necessarily want to water crops if we know it will rain
+in the next few days.
+The water needs model thus incorporates this information to provide an
+explicit signal how much water is required.
+
+<!--
+TODO: Incorporate this model to capture water uptake by roots
+https://hess.copernicus.org/articles/19/409/2015/hess-19-409-2015.pdf
+https://www.sciencedirect.com/science/article/pii/S0378377423004729
+-->
+
+The following additional tasks are required prior to activating this stage:
+
+- Identify a reliable water source
+- Determine how often water can be applied in days (e.g., every day, every 2 days, etc.)
+- Assign someone to be responsible for watering the plant
+
+No additional sensors are required for this stage.
+The primary requirement is to ensure someone can physically water plants
+when they need water.
+
+If testing the benefit of the system, it is highly recommended that a 
+control group exists that follows the existing watering protocol.
+The control group makes it easier to compare the differences between the
+two techniques.
 
 ### Irrigation control
 Automated irrigation control builds on top of the water needs forecasting model.
+This system introduces pumps and flow sensors to control and monitor 
+the flow of water through tubing or pipes.
+For areas with limited infrastructure,
+we recommend using small pumps with minimal power needs. 
+These can be deployed one per device to enable precise control of the
+watering for a single crop.
 
-```{r precision-ag-2, echo=FALSE, fig.align='center', fig.cap="A more sophisticated system with a separate device that controls an irrigation pump."}
+```{r precision-ag-2, echo=FALSE, out.width='1024px', fig.align='center', fig.cap="A more sophisticated system with a separate device that controls an irrigation pump."}
 knitr::include_graphics('images/precision_ag_2.png')
 ```
+
+This stage requires the following tasks:
+
+- Measure the distance between water source and crops
+- Note the water storage capacity
+- Note whether the water is filtered (if not, acquire filtration)
+- Design irrigation layout
+- Acquisition of pumps and flow sensors
+- Acquisition of tubing
+- Install tubing and pumps
+- Test installation locally with mobile app
 
 ### Freeze warnings
 
@@ -310,6 +372,58 @@ Crop tables typically show temperature ranges that specific crops can tolerate.
 knitr::include_graphics('images/crop_temperature_guide.jpg')
 ```
 
+<!--
+## Public infrastructure
+
+Assessment -> Adaptation Plan -> Implementation -> Monitoring
+
+Monitoring -> insert at beginning
+Then get the monitoring to measure outcomes
+
+### Flood risk
+
+Biggest flood issues
+- Subsidized housing
+- Industrial contamination
+- Public safety and housing
+https://blog.ucsusa.org/kristy-dahl/critical-infrastructure-threatened-by-rising-seas-in-hundreds-of-coastal-communities/#:~:text=Overall%2C%20public%20and%20affordable%20housing,more%20per%20year%20increases%20steeply
+
+
+How is flood risk assessed currently?
+What type of flooding is the greatest concern/risk?
+What sort of monitoring occurs?
+When there's a flood
+- what needs to be done to protect the community?
+- what groups (firemen, utilities, police) are mobilized?
+- how early does preparation have to occur?
+- what types of infrastructure are most at risk
+
+What are the planning goals to reduce the cost/damage/disruption of flooding
+Where would pumps (automatically controlled) be useful to reduce flooding damage?
+
+
+
+
+- flooding from runoff
+- flooding from rivers
+
+water level sensors in areas where flooding is suspected
+water level sensors in underpass
+
+soil moisture sensors identify water saturation levels -> magnitude of flooding
+flodd sequencing -> incorporate topology to identify where floods will occur (in order) also know how much rain will cause the flooding
+
+
+## Farm
+Plantings
+
+Microclimates (temp, humidity)
+Soil moisture
+Soil temperature (for annuals)
+
+How long does initial monitoring need to take to understand trends?
+
+-->
 ## Hotter Times
 
 This site is used to display public data related to the sensor network.
@@ -317,4 +431,6 @@ Hotter Times thus becomes a public service where everyone can benefit from
 the device network.
 
 All of the layers discussed above can be displayed on Hotter Times.
+
+
 
