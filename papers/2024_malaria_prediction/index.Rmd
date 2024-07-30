@@ -1,0 +1,22 @@
+---
+title: "Mosquito-borne infectious disease"
+author: "Mudassir Imam, Zhengnan Li"
+date: "`r Sys.Date()`"
+output: 
+  bookdown::pdf_book: default
+  bookdown::gitbook:
+    output_file: "Mosquito-borne_infectious_disease.html"
+documentclass: book
+bibliography:
+- book.bib
+- packages.bib
+description: "This is a research aims to explore the relationship between mosquito abundance and infectious diseases, develop a predictive model, and establish a threshold for an Early Warning System. Additionally, we plan to utilize physical sensors to monitor temperature, humidity, and other environmental conditions. This data will enable real-time predictions of mosquito populations and the trends in mosquito-borne diseases, providing essential scientific evidence and technical support for enhancing disease prevention and control strategies."
+link-citations: true
+github-repo: "https://github.com/Zhengnan817/cadp_docs.git"
+site: bookdown::bookdown_site
+rmd_files: ["index.Rmd", "02-Introduction.Rmd", "03-Data.Rmd", "04-Methodology.Rmd", "05-Results.Rmd", "06-Conclusion.Rmd", "07-References.Rmd"]
+---
+
+# Abstract
+
+Infectious diseases are illnesses caused by harmful organisms like bacteria, viruses, fungi, or parasites that invade our bodies. These invaders can spread from person to person through various means, from direct contact to airborne transmission. Throughout history, infectious diseases have had a profound impact on human society.They have caused massive death tolls, shaping demographics and influencing societal structures. The Black Death, for instance, is estimated to have wiped out a third of Europe's population in the 14th century. Even today, infectious diseases like HIV/AIDS, malaria, and tuberculosis continue to claim millions of lives globally, particularly in developing countries.Our study aims to delve deeper into this complex relationship between infectious diseases and human society. We want to understand how these diseases have shaped our past, how they influence our present, and how we can better prepare for future outbreaks. By examining specific diseases or focusing on broader trends, or by finding the mosquitoes’ abundance, an early warning system can be created to gain valuable insights that can guide public health policies, medical advancements, and societal responses to these ever-present challenges.

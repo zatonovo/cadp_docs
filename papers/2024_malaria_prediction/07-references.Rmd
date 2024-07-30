@@ -1,0 +1,7 @@
+# References
+
+- Mazni Baharom, Norfazilah Ahmad, Rozita Hod, and Mohd Rizal Abdul Manaf. Dengue Early Warning System as Outbreak Prediction Tool: A Systematic Review. Published online 2022 May 3. [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9078425/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC9078425/).
+- Kristina M. Cordes, Susan T. Cookson, Andrew T. Boyd, Colleen Hardy, Mamunur Rahman Malik, Peter Mala, Khalid El Tahir, Marthe Everard, Mohamad Jasiem, and Farah Husain. Real-Time Surveillance in Emergencies Using the Early Warning Alert and Response Network.Published online 2017 Dec. [https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5711309/](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5711309/). 
+- National Syndromic Surveillance Program: BioSense Platform. Published online  APRIL 22, 2024. [https://www.cdc.gov/nssp/php/about/about-nssp-and-the-biosense-platform.html](https://www.cdc.gov/nssp/php/about/about-nssp-and-the-biosense-platform.html).
+- New Pandemic Center Project: Early Warning System Initiative Launched At The 3rd International Annual Conference On Public Health In Africa – Lusaka, Zambia. School of Public Health. Published online December 20, 2023. [https://pandemics.sph.brown.edu/news/2023-12-20/aware-project-launch-cphia](https://pandemics.sph.brown.edu/news/2023-12-20/aware-project-launch-cphia)
+

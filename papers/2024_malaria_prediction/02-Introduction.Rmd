@@ -1,0 +1,131 @@
+# Introduction
+
+## Background
+
+Infectious diseases are illnesses caused by harmful organisms like bacteria, viruses, fungi, or parasites that invade our bodies. These invaders can spread from person to person through various means, from direct contact to airborne transmission. Throughout history, infectious diseases have had a profound impact on human society.
+
+They have caused massive death tolls, shaping demographics and influencing societal structures. The Black Death, for instance, is estimated to have wiped out a third of Europe's population in the 14th century. Even today, infectious diseases like HIV/AIDS, malaria, and tuberculosis continue to claim millions of lives globally, particularly in developing countries.
+
+Our study aims to delve deeper into this complex relationship between infectious diseases and human society. We want to understand how these diseases have shaped our past, how they influence our present, and how we can better prepare for future outbreaks. By examining specific diseases or focusing on broader trends, or by finding the mosquitoes’ abundance, an early warning system can be created to gain valuable insights that can guide public health policies, medical advancements, and societal responses to these ever-present challenges.
+
+## Mosquitoes As Vector Of Disease
+
+Mosquito-borne diseases are illnesses transmitted by mosquitoes that have been infected with certain viruses or parasites. When an infected mosquito bites a person, it can pass these pathogens into their bloodstream, leading to various health issues. Among the well-known mosquito-borne diseases are Zika virus, which can cause birth defects if contracted during pregnancy; West Nile virus, often leading to severe neurological symptoms in some cases; Chikungunya virus, known for causing joint pain and fever; dengue, which can lead to severe flu-like symptoms and potentially life-threatening complications; and malaria, a serious disease caused by Plasmodium parasites that can result in severe health complications and death if not treated properly.
+
+## Mosquito Life Cycle
+
+```{r, echo=FALSE, fig.align='center', fig.cap="Mosquito Life Cycle", out.width='70%'}
+knitr::include_graphics('images/mosquito_life_cycle.jpeg')
+```
+
+Mosquitoes have four distinct life stages:
+ 
+- Egg - Eggs hatch when they come into contact with water.
+- Larva - Also known as "wrigglers," these live in water, shed their skin several times, and usually come to the surface to breathe air.
+- Pupa - Known as "tumblers," they do not eat and are in the stage right before becoming adults.
+- Adult - After emerging and allowing their body parts to harden, adult mosquitoes can fly.
+
+The first three stages are aquatic, while the adult mosquito is a flying insect. Only female mosquitoes bite and feed on the blood of humans or animals. After a blood meal, the female lays her eggs on or near water, soil, or at the base of plants in places that may later be filled with water. These eggs can survive in dry conditions for several months before hatching.
+
+When the eggs hatch in water, mosquito larvae, or "wrigglers," emerge. The time required for hatching depends on the water temperature, available food, and mosquito species. The larvae live in water, eat, and grow until they become pupae or "tumblers." Pupae remain in the water but do not feed. After spending two days to a week as pupae, they transform into adult mosquitoes. The entire life cycle usually takes around two weeks but can vary from 4 days to a month based on environmental conditions. Adult mosquitoes emerge on the water's surface and fly away to start the cycle anew.
+
+## Environmental Factors Affecting Mosquito Abundance
+
+Climate change plays a significant role in creating conditions that favor the spread of these diseases. By studying how weather factors influence mosquito activity and their search for hosts, we can better manage the risk and control outbreaks of mosquito-borne diseases. There are various researches to observe the environmental factors that correlates with mosquitoes’ population. 
+
+### Temperature
+
+Mosquito development is affected by temperature. Higher temperatures accelerate the life cycle of mosquitoes up to a certain point, but once temperatures exceed an upper limit, mosquito populations begin to decline as the upper temperature limit for mosquitoes, beyond which their populations begin to decline, generally falls around 35-40°C (95-104°F). Prolonged exposure to temperatures above this range can be detrimental to their survival and reproductive rates. Lower temperatures also slow the development and growth of mosquitoes, extending their life cycle and reducing the number of generations that can occur within a single season. For most mosquito species, temperatures below 15°C (59°F) significantly inhibit their activity and development.
+
+### Within Season
+
+Other factors that play a vital role in mosquito abundance within a single season are humidity, rainfall, breeding sites and vegetation. Mosquitoes thrive in moist environments, as they prevent desiccation and support breeding. Rainfall provides breeding sites for mosquitoes by creating standing water in which they lay their eggs. Heavy rains can increase the availability of these sites. The availability of suitable breeding sites, such as ponds, puddles, and containers with stagnant water, directly impacts mosquito populations. Dense vegetation provides shelter and resting places for adult mosquitoes, contributing to their survival and proliferation. 
+
+### Across Season
+
+Across multiple seasons, mosquito abundance is influenced by various factors including temperature fluctuations, availability of breeding sites, rainfall patterns, and environmental conditions. These factors can cause variations in mosquito populations from one season to the next, resulting in more generations each season.
+
+### Humidity
+
+Humidity also plays a crucial role, as mosquitoes flourish in moist environments that prevent them from drying out and provide ample breeding sites. Mosquitoes need to lay their eggs in or near water. Standing water from sources like rain or irrigation is crucial for the development of larvae and pupae. Even small pools of stagnant water can serve as breeding grounds for mosquitoes.
+
+## Survey Of Existing Early Warning Systems For Infectious Disease
+
+An early warning system is a comprehensive system designed to monitor hazards, predict and forecast events, assess disaster risks, and enhance communication and preparedness. This system helps individuals, communities, governments, businesses, and other entities to take prompt action to mitigate risks before hazardous events take place. Detecting outbreaks swiftly is essential to prevent them from escalating, saving lives, and managing them effectively. There are various Early Warning Systems (EWS):
+
+### The WHO's Early Warning, Alert, and Response System (EWARS)
+
+EWARS is specifically tailored to enhance disease surveillance in emergency situations, like those following natural disasters or in conflict zones. It has key features of mobile and web-based reporting, real-time data collection, analysis, and dissemination. It offers a straightforward and affordable method to establish a robust surveillance system rapidly.
+
+### The BioSense Platform 
+
+It is a cloud-based early detection and monitoring system that helps the public health community protect Americans from injuries, emerging diseases, and environmental disasters. It is a product of the CDC (Centers for Disease Control).
+
+### The Epidemic Intelligence Information System (EPIS)
+
+EPIS is a web-based communication platform that allows nominated public health experts to exchange technical information to assess whether current and emerging public health threats have a potential impact in the European Union (EU).
+
+### ProMED-mail
+
+Also known as the Program for Monitoring Emerging Diseases, stands as one of the world's largest platforms for reporting on emerging diseases and outbreaks. Its primary goal is to foster communication among global experts in infectious diseases, including scientists, doctors, veterinarians, epidemiologists, public health experts, and anyone interested in monitoring and addressing infectious diseases worldwide.
+
+### The Advance Warning and Response Exemplars (AWARE)
+
+AWARE project aims to identify and analyze exceptional cases where early warning and response systems have been highly effective in managing major public health events. These events include outbreaks of diseases with the potential to cause pandemics and those influenced by climate change, such as climate-sensitive infectious diseases. The AWARE project aims to explore the obstacles and enablers in creating, executing, and maintaining effective Early Warning Systems (EWS). Its specific focus is on identifying exceptional cases where early detection and response to major public health events, such as outbreaks of climate-sensitive infectious diseases (CSIDs) and those with the potential to become pandemics, have been successful. To accomplish this, the project will:
+- Identify the essential epidemic intelligence infrastructure, capabilities, and processes required for effective EWS in low-resource settings.
+- Define the best practices and core capacities that support successful multi-sectoral outbreak response governance and decision-making.
+
+### Dengue Early Warning System (EWS)
+
+Dengue EWS is part of research funded by the Ministry of Higher Education Malaysia under the Long-term Research Grant Scheme (LRGS) project. Dengue EWS is a vital tool for mitigating or preventing disease outbreaks. Integrating multiple epidemiological tools and incorporating climatic, environmental, epidemiological, and socioeconomic factors can enhance the predictive ability of EWS. High-quality and timely data from national surveillance systems are crucial for developing effective EWS. The information here is taken from a systematic review “Dengue Early Warning System as Outbreak Prediction Tool: A Systematic Review”, that underscores the importance of ongoing enhancements and integration of diverse data sources to enhance the performance of dengue Early Warning Systems (EWS). 
+
+As per the NCBI (National Center for Biotechnology Information) data, out of 68 articles reviewed, 42 found that Early Warning Systems (EWSs) effectively operated on their own to monitor large-scale outbreaks of infectious diseases. Another 16 studies showed that EWSs played supportive roles alongside existing surveillance methods. Using data from emergency departments' chief complaints can be effective as an EWS, but it requires consistent formats across different hospitals. EWSs based on centralized Public Health records help share information but depend on clinicians reporting cases. Web-based EWSs excel in remote areas due to quick alarm transmission. However, using only pharmaceutical sales or lab results didn't work well alone. Successful EWS designs combined data from health records and staff inputs. Daily notifications from surveillance data, especially during big events, were highly effective and widely accepted for improving monitoring. There is consistent evidence that EWSs compiling pre-diagnosis data are more proactive to detect outbreaks.
+
+## Research Gaps
+
+Existing research on the impact of environmental factors on mosquito abundance often lacks comprehensive analysis across diverse settings and conditions. Many studies focus on specific regions or types of mosquitoes, limiting generalizability. Moreover, there is a need for more integrated approaches that consider multiple environmental variables simultaneously, such as temperature, humidity, vegetation, and water availability. 
+
+The effectiveness of the early warning system (EWS) is highly dependent on the national surveillance infrastructure. The absence of prompt and high-quality data poses a significant challenge to the development of a robust EWS.
+
+### The WHO's Early Warning, Alert, and Response System (EWARS): 
+
+- The paper mentions a need for standardized training and additional guidance to support EWARN systems, particularly in situations where access to affected areas is restricted. There is a gap in systematic development and dissemination of standardized training materials that can be adapted across different regions and emergencies. Future research could focus on developing comprehensive training modules and tools that address the specific challenges of remote support and ensure consistent implementation and data quality across diverse settings.
+- While EWARN systems have been effective in detecting outbreaks, there is a gap in leveraging new technologies for data collection, reporting, and communication. The paper mentions challenges with remote work and suggests improving electronic reporting solutions. Research could explore the integration of mobile technologies, real-time data analytics, and point-of-care diagnostics to enhance the timeliness and accuracy of outbreak detection and response within EWARN systems.
+- The paper highlights the importance of adapting EWARN systems to the evolving epidemiological contexts in humanitarian emergencies. However, there is a gap in understanding how to effectively modify EWARN protocols and surveillance strategies to address emerging diseases or changing patterns of disease transmission. Research could investigate adaptive management approaches that allow for flexible, context-specific adjustments to EWARN systems based on real-time epidemiological data and evolving health threats.
+
+### The BioSense Platform:
+
+- Research is needed to improve data quality assurance and integration across different sources. This includes studying methods to standardize data collection processes, ensuring interoperability with diverse data systems (e.g., electronic health records from different vendors), and developing automated tools for data validation and cleaning within the platform.
+- Research gaps also exist in how effectively the BioSense Platform integrates with broader public health response systems. Studies could explore the coordination mechanisms between the platform and public health agencies, the speed and efficiency of communication during emergencies, and the platform’s role in facilitating real-time decision-making and resource allocation.
+
+### ProMED-mail:
+
+- As with any global health surveillance system, there are ethical considerations regarding data privacy, consent, and information sharing. Research could address ethical frameworks for sharing outbreak information, public perceptions of data sharing through ProMED-mail, and strategies to mitigate privacy risks while maintaining transparency.
+- Assessing the impact of ProMED-mail in building local capacity for disease surveillance and response in resource-limited settings is crucial. Research could focus on evaluating the effectiveness of training programs associated with ProMED-mail, identifying barriers to implementation in different regions, and measuring the long-term sustainability of capacity-building efforts.
+
+### The Advance Warning and Response Exemplars (AWARE):
+
+- Research could focus on defining and standardizing metrics to assess the effectiveness of EWS in detecting and responding to public health events. This includes measuring the timeliness of detection, the accuracy of predictions, and the efficiency of response efforts.
+- Conduct comparative studies across different regions and countries to identify factors that contribute to successful EWS implementation and sustainability. This could include examining differences in infrastructure, governance frameworks, and resource allocation.
+
+### Dengue Early Warning System (EWS): 
+
+- Many studies highlighted in the paper report high sensitivity or predictive values for specific variables or models in their respective regions (e.g., Malaysia, Mexico). However, there might be a gap in validating these models across different geographical locations with varying dengue epidemiology. Generalizing the findings to diverse contexts could strengthen the applicability and reliability of EWS models.
+- The paper mentions challenges related to the quality and timely availability of data, which are crucial for effective EWS implementation. Future research could explore strategies to improve data quality, enhance data accessibility, and integrate real-time data streams to ensure the reliability and responsiveness of EWS systems.
+- The paper acknowledges limitations in excluding non-English language studies and grey literature. Future research could address this gap by incorporating diverse sources of evidence, including unpublished data, to provide a more comprehensive assessment of dengue EWS effectiveness globally.
+
+## Potential Impact Of The Research
+
+This study delves into the intricate dynamics of malaria and dengue, exploring their profound impact on human societies. By examining the historical and current trends of these diseases, the research aims to uncover how environmental factors such as climate change and mosquito abundance influence their spread and severity. A critical focus is on developing robust early warning systems (EWS) to predict outbreaks more effectively, particularly in regions vulnerable to vector-borne diseases. Insights gained from this research will guide the implementation of targeted public health interventions, including vector control measures and community education programs. Furthermore, the study seeks to foster medical advancements, aiming to enhance diagnostic tools, vaccines, and treatments for malaria and dengue. The ultimate goal is to mitigate the social, economic, and health burdens caused by these diseases, particularly in low-resource settings where they pose the greatest threat. By promoting collaboration between health authorities, researchers, and communities, this research endeavors to strengthen global resilience against malaria and dengue, contributing to sustainable health outcomes worldwide.
+
+
+
+
+
+
+
+
+
+
+
+

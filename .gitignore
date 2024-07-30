@@ -1,3 +1,7 @@
+
+
+
+
 ## Core latex/pdflatex auxiliary files:
 *.aux
 *.lof
@@ -67,6 +71,15 @@ acs-*.bib
 # comment
 *.cut
 
+# ignore all .DS_Store file
+.DS_Store
+_main_files
+papers/**/_book
+papers/**/libs
+papers/**/_main_files
+old
+*.log
+
 # cprotect
 *.cpt
 
@@ -78,6 +91,7 @@ acs-*.bib
 
 # fixme
 *.lox
+
 
 # feynmf/feynmp
 *.mf
@@ -300,4 +314,4 @@ TSWLatexianTemp*
 # Uncomment the next line to have this generated file ignored.
 #*Notes.bib
 
-old
+**/.Rhistory
