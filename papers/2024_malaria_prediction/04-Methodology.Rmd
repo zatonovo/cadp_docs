@@ -1,1 +1,97 @@
 # Methodology
+
+## Implementation Of Mosquito Abundance PDEs
+
+## Implementation Of An LSTM Model For Mosquito Population Prediction Using The Population Data
+
+## Validation Of PDE Model With The Observational Data
+
+## Implementing Risk Protocol For Alerting People Of Higher Risk Of Disease Transmission
+
+### Introduction
+
+The primary goal of our study is to implement a risk protocol for alerting people of higher risk of disease transmission based on mosquito abundance data. This system will generate alerts when mosquito abundance reaches critical thresholds specific to malaria and dengue fever. The methodology involves determining these thresholds, implementing a risk function, testing, and deploying the system within the CADP (Community Alert and Decision Platform).
+
+### Risk Protocol Development
+
+#### Determine Mosquito Abundance Threshold For Malaria
+
+- **Rationale:** Malaria transmission is heavily influenced by the density of Anopheles mosquitoes, which are the primary vectors for the disease.
+- **Methodology:**
+  - Review existing literature and data on malaria transmission rates and mosquito abundance.
+  - Analyze historical data to identify the mosquito density associated with increased malaria cases.
+  - Conduct statistical analysis to determine the threshold beyond which the risk of malaria transmission becomes significant.
+- **Hypothesis:** There exists a specific mosquito abundance threshold that significantly elevates malaria transmission risk.
+- **Analysis:** Use regression models to correlate mosquito abundance with malaria incidence rates.
+- **Results:** Document the identified threshold and justify its selection based on statistical significance and literature review.
+
+#### Determine Mosquito Abundance Threshold For Dengue Fever
+
+- **Rationale:** Dengue fever is transmitted by Aedes mosquitoes, and its incidence is linked to the abundance of these vectors.
+- **Methodology:**
+  - Review existing literature and data on dengue transmission rates and mosquito abundance.
+  - Analyze historical data to identify the mosquito density associated with increased dengue cases.
+  - Conduct statistical analysis to determine the threshold beyond which the risk of dengue transmission becomes significant.
+- **Hypothesis:** There exists a specific mosquito abundance threshold that significantly elevates dengue transmission risk.
+- **Analysis:** Use regression models to correlate mosquito abundance with dengue incidence rates.
+- **Results:** Document the identified threshold and justify its selection based on statistical significance and literature review.
+
+### Implementing The Risk Function In R
+
+#### Develop The Risk Function
+
+- **Rationale:** To automate the generation of alerts based on the identified thresholds for malaria and dengue fever.
+- **Methodology:**
+  - Define the risk function parameters, including mosquito abundance, location, and disease type.
+  - Implement the function in R, ensuring it accurately triggers alerts when thresholds are exceeded.
+- **Analysis:** Validate the function through unit tests and simulations.
+- **Results:** A functional risk algorithm capable of real-time alert generation.
+
+#### Write Tests For The Risk Function
+
+- **Rationale:** Ensure the risk function operates correctly and reliably under various scenarios.
+- **Methodology:**
+  - Develop a comprehensive test suite covering different abundance levels, locations, and disease types.
+  - Use mock data to simulate different scenarios and validate the function's output.
+- **Analysis:** Assess the accuracy and reliability of the risk function based on test results.
+- **Results:** Document test cases, methodologies, and outcomes, highlighting any necessary adjustments.
+
+### Deployment And Testing In CADP
+
+#### Deploy The Risk Function
+
+- **Rationale:** Integrate the risk function into the CADP for real-time monitoring and alerting.
+- **Methodology:**
+  - Collaborate with CADP developers to integrate the function.
+  - Ensure seamless data flow and compatibility between the risk function and CADP.
+- **Analysis:** Monitor the deployment process and address any integration issues.
+- **Results:** Successful deployment of the risk function within CADP.
+
+#### Test The System In CADP
+
+- **Rationale:** Validate the system's performance in a live environment.
+- **Methodology:**
+  - Conduct end-to-end testing of the integrated system.
+  - Simulate various scenarios to ensure the system triggers alerts correctly.
+- **Analysis:** Evaluate system performance and reliability based on test results.
+- **Results:** Document testing procedures, results, and any necessary adjustments.
+
+### Simulation And Validation
+
+#### Simulate For Locations With Malaria Or Dengue Fever Surveillance Data
+
+- **Rationale:** Verify the accuracy and reliability of the alert system in real-world conditions.
+- **Methodology:**
+  - Select locations with historical surveillance data for malaria and dengue fever.
+  - Run simulations using actual mosquito abundance and disease incidence data.
+- **Analysis:** Compare the system's alerts with historical disease outbreaks.
+- **Results:** Document the simulation process, outcomes, and any discrepancies.
+
+#### Compare Triggered Alerts With Surveillance Data
+
+- **Rationale:** Validate the system's effectiveness in predicting disease outbreaks.
+- **Methodology:**
+  - Analyze the correlation between triggered alerts and actual surveillance data.
+  - Assess the system's predictive accuracy and reliability.
+- **Analysis:** Perform statistical analysis to evaluate the system's performance.
+- **Results:** Document findings, highlighting the system's strengths and areas for improvement.

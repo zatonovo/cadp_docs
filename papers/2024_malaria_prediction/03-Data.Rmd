@@ -1,3 +1,68 @@
 # Data
 
+## Dataset Requirements and Selection
+
+To achieve our research objectives, we need comprehensive and accurate mosquito abundance data. This data will serve two primary purposes:
+
+- Building a Model: To predict disease prevalence based on mosquito abundance.
+- Validating the Mosquito Abundance PDE Model: Ensuring the model's accuracy through empirical data.
+
+## Initial Data Source: Mosquito Alert Dataset
+
+The Mosquito Alert Dataset is a promising starting point. However, it is crucial to thoroughly understand the sampling methodology to identify any biases that may impact our analyses.
+
+## Data Source: Big Pine Key, Florida
+
+We also found a valuable dataset detailing mosquito abundance in Big Pine Key, Florida, spanning from 1998 to 2019. This dataset includes:
+
+- Location: Big Pine Key, Florida, USA
+- Time Period: 1998-2019
+- Data Points: 558 rows
+- Columns: Date, mosquito abundance, temperature
+
+**Data Source:** [Mosquito Abundance: Dataset for mosquito collections on Big Pine Key, Florida, USA](https://www.sciencedirect.com/science/article/pii/S2352340919308716?via%3Dihub)
+
+Temperature data was retrieved from the nearest available climate station, addressing the absence of a specific station on Big Pine Key:
+
+**Data Source:** [Florida Climate Change Data](https://climatecenter.fsu.edu/climate-data-access-tools/downloadable-data)
+
+## Data Source: Dengue And Mosquito Surveillance In Vitoria, Brazil
+
+This dataset provides weekly reports of dengue-like illness cases and the number of trapped mosquitoes in the neighborhoods of Vitoria, Brazil, along with weather data. The data spans from week 1 of 2008 to week 34 of 2012, offering a comprehensive view of mosquito abundance, disease prevalence, and weather conditions over this period. The dataset was collected and analyzed as part of a study to estimate latent time series of mosquito mortality rates using a Bayesian mechanistic framework.
+
+### Data Collection Methodology
+
+- **Mosquito Surveillance:** Mosquitoes were trapped using MosquiTRAPs, and the number of mosquitoes observed was recorded weekly. Additionally, the number of trapped mosquitoes testing positive for DENV (dengue virus) and the serotypes observed were documented.
+- **Dengue Surveillance:** Weekly reports of dengue-like illness cases were collected from various neighborhoods.
+- **Weather Data:** Daily weather data, including temperature, humidity, and precipitation, were obtained from the WeatherUnderground station IESVITOR2.
+
+### Data Files And Description
+
+**Vitoria.data.csv:** Contains weekly mosquito and dengue surveillance data. Columns include:
+
+- **Year:** Year of observation.
+- **Week:** Week of observation within the year.
+- **tot.week:** Cumulative week number starting from week 1 of 2008.
+- **RG:** Neighborhood code (1 - 75).
+- **Cases:** Number of dengue-like illness reports.
+- **Mosquitoes:** Number of mosquitoes observed in MosquiTRAPs.
+- **Trap:** Number of MosquiTRAPs inspected.
+- **Positives:** Number of mosquitoes testing positive for DENV.
+- **Serotype:** DENV serotypes observed in positive mosquitoes.
+- **Area:** Area of the neighborhood (sq meters).
+- **Population:** Population size of the neighborhood.
+
+This dataset is crucial for building and validating models that predict dengue prevalence based on mosquito abundance
+
+**Data Source:** [Dengue And Mosquito Surveillance In Vitoria, Brazil](https://figshare.com/articles/dataset/Dengue_and_mosquito_surveillance_Vitoria_Brazil/7905254?file=24314480)
+
+## GitHub Repository Organization
+
+A GitHub repository is established to organize the data sources:
+
+- **Mosquito Population Datasets Folder:** Contains datasets with columns: date, population. The README.md describes each dataset, including location and periodicity.
+- **Infectious Disease Datasets Folder:** Contains datasets with columns: date, number of infections. The README.md describes each dataset, including location, periodicity, and disease considered.
+
+**Github:** https://github.com/Bhushan7161/Capstone_Data/tree/main
+
 

@@ -1,6 +1,6 @@
 ---
 title: "Mosquito-borne infectious disease"
-author: "John Doe"
+author: "Mudassir Imam, Zhengnan Li"
 date: "`r Sys.Date()`"
 output: 
   bookdown::pdf_book: default
